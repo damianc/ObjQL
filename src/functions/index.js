@@ -6,6 +6,7 @@ import endsWith from './src/endsWith';
 import contains from './src/contains';
 import ref from './src/ref';
 import sum from './src/sum';
+import avg from './src/avg';
 
 const functions = {
 	firstChar,
@@ -15,7 +16,8 @@ const functions = {
 	endsWith,
 	contains,
 	ref,
-	sum
+	sum,
+	avg
 };
 
 export default functions;
