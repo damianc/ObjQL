@@ -2,7 +2,8 @@ export const CheckType = {
 	EQUAL: Symbol('Check: EQUAL'),
 	IN: Symbol('Check: IN'),
 	REGEXP: Symbol('Check: REGEXP'),
-	BETWEEN: Symbol('Check: BETWEEN')
+	BETWEEN: Symbol('Check: BETWEEN'),
+	CHECK: Symbol('Check: CHECK')
 };
 
 export const getCheckType = function (expected) {
@@ -23,5 +24,9 @@ export const getCheckType = function (expected) {
 
 	if (CONSTRUCTOR == 'array' && expected.length == 2 && (expected[0] < expected[1])) {
 		return CheckType.BETWEEN;
+	}
+
+	if (TYPE == 'function' && expected.isChecker === true) {
+		return CheckType.CHECK;
 	}
 };

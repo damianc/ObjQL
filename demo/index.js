@@ -11,7 +11,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	age: [30, 50]
+	group: ObjQL.check((val, rec) => val == rec.name[0])
 });
 
 console.log(queried);

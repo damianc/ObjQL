@@ -15,7 +15,7 @@ export default class QueryableArray extends Array {
 			for (let queriesEntry of queriesEntries) {
 				let [key, value] = queriesEntry;
 				let checkType = getCheckType(value);
-				if (!doCheck(item[key], value, checkType)) {
+				if (!doCheck(item[key], value, item, checkType)) {
 					doesMatch = false;
 					break;
 				}

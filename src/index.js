@@ -1,5 +1,12 @@
 import QueryableArray from './queryable-array';
 
-export default function ObjQL(arr) {
+function ObjQL(arr) {
 	return new QueryableArray(...arr);
 }
+
+ObjQL.check = fn => {
+	fn.isChecker = true;
+	return fn;
+};
+
+export default ObjQL;
