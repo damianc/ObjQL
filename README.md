@@ -32,4 +32,7 @@ const queried = queryable.where({
 | match value by the first character | `{city: ObjQL.firstChar('A')}` |
 | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
 | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
+| match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
+| match value by the end | `{city: ObjQL.endsWith('os')}` |
+| match value by a substring | `{city: ObjQL.contains('yo')}` |
 | match value by a custom condition | `{name: ObjQL.check((val, rec) => value === rec.surname)}` |
