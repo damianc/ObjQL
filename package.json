@@ -7,8 +7,13 @@
     "build": "node node_modules/webpack/bin/webpack.js --env.mode=production --config webpack.config.js",
     "build-demo": "node node_modules/webpack/bin/webpack.js --env.mode=demo --config webpack.config.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damianc/objql.git"
+  },
+  "author": "damianc (Damian Czapiewski)",
   "license": "ISC",
+  "homepage": "https://github.com/damianc/objql#readme",
   "devDependencies": {
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
