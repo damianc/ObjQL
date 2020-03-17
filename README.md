@@ -28,3 +28,8 @@ const queried = queryable.where({
 | match value by one of values | `{group: new Set(['A', 'B', 'C'])}` |
 | match value by a value from a range | `{age: [20, 32]}` |
 | match value by RegExp | `{name: /^J/}` |
+| match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
+| match value by the first character | `{city: ObjQL.firstChar('A')}` |
+| match value by the last character | `{city: ObjQL.lastChar('Z')}` |
+| match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
+| match value by a custom condition | `{name: ObjQL.check((val, rec) => value === rec.surname)}` |
