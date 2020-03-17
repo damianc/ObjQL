@@ -1,0 +1,16 @@
+{
+  "name": "objql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "objql.js",
+  "scripts": {
+    "build": "node node_modules/webpack/bin/webpack.js --env.mode=production --config webpack.config.js",
+    "build-demo": "node node_modules/webpack/bin/webpack.js --env.mode=demo --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
