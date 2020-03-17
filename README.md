@@ -19,3 +19,11 @@ const queried = queryable.where({
 
 // => [{name: 'Adam', age: 18}]
 ```
+
+## Requesting a Value
+
+| Purpose | Example key-value pair |
+|---------|------------------------|
+| match value by an exact value | `{name: 'John'}` |
+| match value by one of values | `{group: new Set(['A', 'B', 'C'])}` |
+| match value by RegExp | `{name: /^J/}` |
