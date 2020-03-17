@@ -6,12 +6,13 @@ const collection = [
 	{name: 'Mark', age: 19, group: 'C', fatherName: 'Mark'},
 	{name: 'Joseph', age: 34, group: 'D'},
 	{name: 'Jack', age: 42, group: 'E'},
-	{name: 'Michael', age: 24, group: 'F'}
+	{name: 'Michael', age: 24, group: 'F'},
+	{name: 'Amadeusz', age: 38, group: 'G'}
 ];
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	name: ObjQL.ref('fatherName')
+	name: ObjQL.contains('pH', false)
 });
 
 console.log(queried);
