@@ -19,4 +19,8 @@ ObjQL.nthChar = (expectedChar, charPosition) => {
 	return ObjQL.check((val) => val[charPosition] === expectedChar);
 };
 
+ObjQL.ref = (fieldName) => {
+	return ObjQL.check((val, rec) => val === rec[fieldName]);
+};
+
 export default ObjQL;
