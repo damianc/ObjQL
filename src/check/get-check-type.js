@@ -1,6 +1,7 @@
 export const CheckType = {
 	EQUAL: Symbol('Check: EQUAL'),
-	IN: Symbol('Check: IN')
+	IN: Symbol('Check: IN'),
+	REGEXP: Symbol('Check: REGEXP')
 };
 
 export const getCheckType = function (expected) {
@@ -13,5 +14,9 @@ export const getCheckType = function (expected) {
 
 	if (CONSTRUCTOR == 'set') {
 		return CheckType.IN;
+	}
+
+	if (CONSTRUCTOR == 'regexp') {
+		return CheckType.REGEXP;
 	}
 };

@@ -6,5 +6,7 @@ export const doCheck = function (actual, expected, checkType) {
 			return actual === expected;
 		case CheckType.IN:
 			return expected.has(actual);
+		case CheckType.REGEXP:
+			return expected.test(actual);
 	}
 };

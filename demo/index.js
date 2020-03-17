@@ -11,9 +11,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	name: 'Adam',
-	age: 42,
-	group: new Set(['X', 'Y', 'B', 'Z'])
+	name: /a/
 });
 
 console.log(queried);
