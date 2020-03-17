@@ -8,5 +8,7 @@ export const doCheck = function (actual, expected, checkType) {
 			return expected.has(actual);
 		case CheckType.REGEXP:
 			return expected.test(actual);
+		case CheckType.BETWEEN:
+			return actual >= expected[0] && actual <= expected[1];
 	}
 };
