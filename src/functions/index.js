@@ -7,6 +7,8 @@ import contains from './src/contains';
 import ref from './src/ref';
 import sum from './src/sum';
 import avg from './src/avg';
+import min from './src/min';
+import max from './src/max';
 
 const functions = {
 	firstChar,
@@ -17,7 +19,9 @@ const functions = {
 	contains,
 	ref,
 	sum,
-	avg
+	avg,
+	min,
+	max
 };
 
 export default functions;

@@ -12,7 +12,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	points: ObjQL.avg(2, 4)
+	points: ObjQL.min(2)
 });
 
 console.log(queried);
