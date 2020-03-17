@@ -11,7 +11,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	name: /a/
+	age: [30, 50]
 });
 
 console.log(queried);

@@ -26,4 +26,5 @@ const queried = queryable.where({
 |---------|------------------------|
 | match value by an exact value | `{name: 'John'}` |
 | match value by one of values | `{group: new Set(['A', 'B', 'C'])}` |
+| match value by a value from a range | `{age: [20, 32]}` |
 | match value by RegExp | `{name: /^J/}` |

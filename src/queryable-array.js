@@ -1,4 +1,3 @@
-// import { doCheck, getCheckType } from './check';
 import { doCheck } from './check/do-check';
 import { getCheckType } from './check/get-check-type';
 

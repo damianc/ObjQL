@@ -1,7 +1,8 @@
 export const CheckType = {
 	EQUAL: Symbol('Check: EQUAL'),
 	IN: Symbol('Check: IN'),
-	REGEXP: Symbol('Check: REGEXP')
+	REGEXP: Symbol('Check: REGEXP'),
+	BETWEEN: Symbol('Check: BETWEEN')
 };
 
 export const getCheckType = function (expected) {
@@ -18,5 +19,9 @@ export const getCheckType = function (expected) {
 
 	if (CONSTRUCTOR == 'regexp') {
 		return CheckType.REGEXP;
+	}
+
+	if (CONSTRUCTOR == 'array' && expected.length == 2 && (expected[0] < expected[1])) {
+		return CheckType.BETWEEN;
 	}
 };
