@@ -11,7 +11,8 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	group: ObjQL.check((val, rec) => val == rec.name[0])
+	group: ObjQL.check((val, rec) => val != rec.name[0]),
+	name: ObjQL.nthChar('a', 1)
 });
 
 console.log(queried);
