@@ -4,8 +4,12 @@ import { getCheckType } from './check/get-check-type';
 
 export default class QueryableArray extends Array {
 	where(queries) {
-		const queriesEntries = Object.entries(queries);
+		if (!queries) {
+			return this.slice();
+		}
 
+		const queriesEntries = Object.entries(queries);
+		
 		return this.filter(item => {
 			let doesMatch = true;
 
