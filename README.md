@@ -56,16 +56,28 @@ const queried = queryable.where({
 
 ## Functions
 
+### General
+
 | Function | Purpose | Example |
 |----------|---------|---------|
 | **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
+| **check(fn)** | match value by a custom condition | `{name: ObjQL.check((val, rec) => value === rec.surname)}` |
+
+### Strings
+
+| Function | Purpose | Example |
+|----------|---------|---------|
 | **firstChar(char)** | match value by the first character | `{city: ObjQL.firstChar('A')}` |
 | **lastChar(char)** | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
 | **nthChar(char, position)** | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
 | **startsWith(substr)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
 | **endsWith(substr)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
 | **contains(substr)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
-| **check(fn)** | match value by a custom condition | `{name: ObjQL.check((val, rec) => value === rec.surname)}` |
+
+### Date
+
+| Function | Purpose | Example |
+|----------|---------|---------|
 | **day(dayIndex)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
 | **month(monthIndex)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
 | **year(fullYear)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
@@ -75,12 +87,17 @@ const queried = queryable.where({
 | **millisecond(ms)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
 | **date(dateString**) | match value by a date (_DD.MM.YYYY_ or _DD.MM_) | `{birth_date: ObjQL.date('14.02')}` |
 | **weekDay(weekDayIndex)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
+
+### Array of Numbers
+
+| Function | Purpose | Example |
+|----------|---------|---------|
 | **min(n, highestN)** | match value by minimum value(s) in an array | `{height: ObjQL.min(180, 190)}` |
 | **max(n, highestN)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
 | **avg(n, highestN)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
 | **sum(n, highestN)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
 
-### How do `min()`/`max()` work?
+#### How do `min()`/`max()` work?
 
 ```
 const collection = ObjQL([
