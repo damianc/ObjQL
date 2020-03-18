@@ -76,6 +76,8 @@ const queried = queryable.where({
 
 ### Date
 
+Functions used to check a value being an instance of `Date()`.
+
 | Function | Purpose | Example |
 |----------|---------|---------|
 | **day(dayIndex)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
