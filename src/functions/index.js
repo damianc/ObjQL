@@ -9,6 +9,9 @@ import sum from './src/sum';
 import avg from './src/avg';
 import min from './src/min';
 import max from './src/max';
+import year from './src/year';
+import month from './src/month';
+import day from './src/day';
 
 const functions = {
 	firstChar,
@@ -21,7 +24,10 @@ const functions = {
 	sum,
 	avg,
 	min,
-	max
+	max,
+	year,
+	month,
+	day
 };
 
 export default functions;

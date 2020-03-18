@@ -22,17 +22,50 @@ const queried = queryable.where({
 
 ## Requesting a Value
 
-| Purpose | Example key-value pair |
-|---------|------------------------|
-| match value by an exact value | `{name: 'John'}` |
-| match value by one of values | `{group: new Set(['A', 'B', 'C'])}` |
-| match value by a value from a range | `{age: [20, 32]}` |
-| match value by RegExp | `{name: /^J/}` |
-| match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
-| match value by the first character | `{city: ObjQL.firstChar('A')}` |
-| match value by the last character | `{city: ObjQL.lastChar('Z')}` |
-| match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
-| match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
-| match value by the end | `{city: ObjQL.endsWith('os')}` |
-| match value by a substring | `{city: ObjQL.contains('yo')}` |
-| match value by a custom condition | `{name: ObjQL.check((val, rec) => value === rec.surname)}` |
+### Value Must Equal Another Value
+
+```
+...where({
+	name: 'John'
+})
+```
+
+### Value Must Match to Pattern
+
+```
+...where({
+	name: /^J/
+})
+```
+
+### Value Must Equal One of Values
+
+```
+...where({
+	group: new Set(['A', 'B', 'C'])
+})
+```
+
+### Numeric Value Must be Contained in a Range
+
+```
+...where({
+	age: [20, 32]
+})
+```
+
+## Functions
+
+| Function | Purpose | Example |
+|----------|---------|---------|
+| **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
+| **firstChar(char)** | match value by the first character | `{city: ObjQL.firstChar('A')}` |
+| **lastChar(char)** | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
+| **nthChar(char, position)** | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
+| **startsWith(substr)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
+| **endsWith(substr)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
+| **contains(substr)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
+| **check(fn)** | match value by a custom condition | `{name: ObjQL.check((val, rec) => value === rec.surname)}` |
+| **day(dayIndex)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
+| **month(monthIndex)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
+| **year(fullYear)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
