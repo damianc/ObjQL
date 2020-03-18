@@ -13,6 +13,11 @@ import year from './src/year';
 import month from './src/month';
 import day from './src/day';
 import date from './src/date';
+import weekDay from './src/weekDay';
+import hour from './src/hour';
+import minute from './src/minute';
+import second from './src/second';
+import millisecond from './src/millisecond';
 
 const functions = {
 	firstChar,
@@ -29,7 +34,12 @@ const functions = {
 	year,
 	month,
 	day,
-	date
+	date,
+	weekDay,
+	hour,
+	minute,
+	second,
+	millisecond
 };
 
 export default functions;

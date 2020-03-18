@@ -1,7 +1,7 @@
 import ObjQL from '../prod/objql';
 
 const collection = [
-	{name: 'Adam', age: 18, group: 'A', fatherName: 'Luck', points: [1,2,3,4], dob: new Date('4/11/1990')},
+	{name: 'Adam', age: 18, group: 'A', fatherName: 'Luck', points: [1,2,3,4], dob: new Date('4/11/1990 15:30:15.012')},
 	{name: 'Adam', age: 42, group: 'B', points: [1,2,0,4], dob: new Date('10/10/1999')},
 	{name: 'Mark', age: 19, group: 'C', fatherName: 'Mark', points: [0,2,3,4], dob: new Date('4/11/1994')},
 	{name: 'Joseph', age: 34, group: 'D', points: [1,0,3,4], dob: new Date('1/1/2000')},
@@ -12,7 +12,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	dob: ObjQL.date('11.04')
+	dob: ObjQL.hour(15)
 });
 
 console.log(queried);
