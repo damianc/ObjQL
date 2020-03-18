@@ -74,3 +74,24 @@ const queried = queryable.where({
 | **max(n, highestN)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
 | **avg(n, highestN)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
 | **sum(n, highestN)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
+
+### How do `min()`/`max()` work?
+
+```
+const collection = ObjQL([
+	{name: 'John', marks: [3, 4, 6]},
+	{name: 'Mark', marks: [2, 3, 5]}
+]);
+
+const result = collection.where({
+	marks: ObjQL.min(2)
+});
+// only Mark has been matched
+// John has not as his minimum value is 3
+
+const result2 = collection.where({
+	marks: ObjQL.min(2, 4)
+});
+// both Mark and John have been matched
+// given minimum value is from the range 2-4
+```
