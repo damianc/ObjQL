@@ -12,7 +12,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	dob: ObjQL.day(11)
+	dob: ObjQL.date('11.04')
 });
 
 console.log(queried);

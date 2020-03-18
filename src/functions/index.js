@@ -12,6 +12,7 @@ import max from './src/max';
 import year from './src/year';
 import month from './src/month';
 import day from './src/day';
+import date from './src/date';
 
 const functions = {
 	firstChar,
@@ -27,7 +28,8 @@ const functions = {
 	max,
 	year,
 	month,
-	day
+	day,
+	date
 };
 
 export default functions;

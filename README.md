@@ -69,3 +69,4 @@ const queried = queryable.where({
 | **day(dayIndex)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
 | **month(monthIndex)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
 | **year(fullYear)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
+| **date(dateString**) | match value by a date (_DD.MM.YYYY_ or _DD.MM_) | `{birth_date: ObjQL.date('14.02')}` |
