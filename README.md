@@ -70,9 +70,9 @@ const queried = queryable.where({
 | **firstChar(char)** | match value by the first character | `{city: ObjQL.firstChar('A')}` |
 | **lastChar(char)** | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
 | **nthChar(char, position)** | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
-| **startsWith(substr)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
-| **endsWith(substr)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
-| **contains(substr)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
+| **startsWith(substr, caseSensitive?)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
+| **endsWith(substr, caseSensitive?)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
+| **contains(substr, caseSensitive?)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
 
 ### Date
 
@@ -94,10 +94,10 @@ Functions used to check a value being an instance of `Date()`.
 
 | Function | Purpose | Example |
 |----------|---------|---------|
-| **min(n, highestN)** | match value by minimum value(s) in an array | `{height: ObjQL.min(180, 190)}` |
-| **max(n, highestN)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
-| **avg(n, highestN)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
-| **sum(n, highestN)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
+| **min(n, highestN?)** | match value by minimum value(s) in an array | `{height: ObjQL.min(180, 190)}` |
+| **max(n, highestN?)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
+| **avg(n, highestN?)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
+| **sum(n, highestN?)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
 
 #### How do `min()`/`max()` work?
 
