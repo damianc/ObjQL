@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	age: ObjQL.range(15, 25)
+	name: ObjQL.regExp(/^.A/i)
 });
 
 console.log(queried);

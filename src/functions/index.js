@@ -24,6 +24,7 @@ import equal from './src/equal';
 import is from './src/is';
 import _in from './src/in';
 import range from './src/range';
+import regExp from './src/regExp';
 
 const functions = {
 	firstChar,
@@ -51,7 +52,8 @@ const functions = {
 	equal,
 	is,
 	_in,
-	range
+	range,
+	regExp
 };
 
 export default functions;
