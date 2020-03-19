@@ -18,6 +18,7 @@ import hour from './src/hour';
 import minute from './src/minute';
 import second from './src/second';
 import millisecond from './src/millisecond';
+import count from './src/count';
 
 const functions = {
 	firstChar,
@@ -39,7 +40,8 @@ const functions = {
 	hour,
 	minute,
 	second,
-	millisecond
+	millisecond,
+	count
 };
 
 export default functions;

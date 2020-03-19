@@ -98,6 +98,7 @@ Functions used to check a value being an instance of `Date()`.
 | **max(n, highestN?)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
 | **avg(n, highestN?)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
 | **sum(n, highestN?)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
+| **count(item, n, highestN?)** | match value by a number of item occurencies | `{marks: ObjQL.count(5, 2)}` |
 
 #### How do `min()`/`max()` work?
 
