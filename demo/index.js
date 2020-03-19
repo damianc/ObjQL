@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	points: ObjQL.min([0,2])
+	points: ObjQL.sum([7,8])
 });
 
 console.log(queried);

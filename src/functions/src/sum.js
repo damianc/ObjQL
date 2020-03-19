@@ -1,13 +1,16 @@
 const sum = ObjQL => {
 
-	return (expectedResult, expectedResultMax = null) => {
+	return (expectedResult) => {
 		return ObjQL.check((val) => {
+			if (!val) return;
+
 			const sumOfNums = val.reduce((a, b) => a + b, 0);
 
-			if (expectedResultMax === null) {
-				return sumOfNums === expectedResult;
+			if (ObjQL.x.isRangeParam(expectedResult)) {
+				const [min, max] = expectedResult;
+				return sumOfNums >= min && sumOfNums <= max;
 			} else {
-				return sumOfNums >= expectedResult && sumOfNums <= expectedResultMax;
+				return sumOfNums === expectedResult;
 			}
 		});
 	};
