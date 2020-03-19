@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	name: ObjQL.regExp(/^.A/i)
+	name: ObjQL.like('%A_a_')
 });
 
 console.log(queried);

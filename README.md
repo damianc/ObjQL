@@ -65,6 +65,7 @@ const queried = queryable.where({
 | **in(valuesArray)** | match value that equals one from an array | `{group: ObjQL.in(['A', 'B', 'C', 'D'])}` |
 | **range(min, max)** | match value that is from the range _&lt;min;max&gt;_ | `{age: ObjQL.range(15, 25)}` |
 | **regExp(re)** | match value that matches to a regular expression | `{name: ObjQL.regExp(/^.A/i)}` |
+| **like(pattern)** | match value that matches to a pattern (_%_ means 0+ chars, _\__ means 1 char) | `{name: ObjQL.like('%A_a_')}` |
 | **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
 | **check(fn)** | match value by a custom condition | `{name: ObjQL.check((val, rec) => val === rec.surname)}` |
 
