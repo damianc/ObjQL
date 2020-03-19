@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	name: ObjQL.like('%A_a_')
+	points: ObjQL.avg(2)
 });
 
 console.log(queried);
