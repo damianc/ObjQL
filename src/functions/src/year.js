@@ -2,8 +2,9 @@ const year = ObjQL => {
 
 	return (year) => {
 		return ObjQL.check((val) => {
-			const fullYear = val.getFullYear();
+			if (!val) return;
 
+			const fullYear = val.getFullYear();
 			return year === fullYear;
 		});
 	};

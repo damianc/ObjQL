@@ -4,6 +4,8 @@ const date = ObjQL => {
 
 	return (dateFormat, dateValue) => {
 		return ObjQL.check((val) => {
+			if (!val) return;
+			
 			const passed = {};
 
 			const yearIdx = dateFormat.indexOf('YYYY');

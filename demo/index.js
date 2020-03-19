@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	points: ObjQL.unique([2,4])
+	name: ObjQL.firstChar('J')
 });
 
 console.log(queried);
