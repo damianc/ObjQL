@@ -26,6 +26,8 @@ import _in from './src/in';
 import range from './src/range';
 import regExp from './src/regExp';
 import like from './src/like';
+import hasKey from './src/hasKey';
+import hasKeys from './src/hasKeys';
 
 const functions = {
 	firstChar,
@@ -55,7 +57,9 @@ const functions = {
 	_in,
 	range,
 	regExp,
-	like
+	like,
+	hasKey,
+	hasKeys
 };
 
 export default functions;

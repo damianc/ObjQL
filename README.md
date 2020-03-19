@@ -153,3 +153,10 @@ const result2 = collection.where({
 // both Mark and John have been matched
 // given minimum value is from the range 2-4
 ```
+
+### Objects
+
+| Function | Purpose | Example |
+|----------|---------|---------|
+| **hasKey(keyName)** | match object that has a given key | `{config: ObjQL.hasKey('language')}` |
+| **hasKeys(keyName, mode)** | match object that has the given keys: **all** (if `mode` equals `ALL`, it's default value) or **some** (if `mode` equals `SOME`) | `{theme: ObjQL.hasKeys(['color', 'background'], 'SOME')}` |
