@@ -19,6 +19,7 @@ import minute from './src/minute';
 import second from './src/second';
 import millisecond from './src/millisecond';
 import count from './src/count';
+import unique from './src/unique';
 
 const functions = {
 	firstChar,
@@ -41,7 +42,8 @@ const functions = {
 	minute,
 	second,
 	millisecond,
-	count
+	count,
+	unique
 };
 
 export default functions;

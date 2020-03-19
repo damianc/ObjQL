@@ -12,7 +12,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	dob: ObjQL.date('HH:mm:ss', '15:30:15')
+	points: ObjQL.unique(2, 4)
 });
 
 console.log(queried);
