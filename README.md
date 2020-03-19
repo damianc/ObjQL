@@ -87,7 +87,7 @@ Functions used to check a value being an instance of `Date()`.
 | **minute(minute)** | match value by a minute | `{orders: ObjQL.minute(30)}` |
 | **second(second)** | match value by a second | `{lap: ObjQL.second(10)}` |
 | **millisecond(ms)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
-| **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', 14.02')}` |
+| **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', '14.02')}` |
 | **weekDay(weekDayIndex)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
 
 > The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second.
@@ -101,6 +101,7 @@ Functions used to check a value being an instance of `Date()`.
 | **avg(n, highestN?)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
 | **sum(n, highestN?)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
 | **count(item, n, highestN?)** | match value by a number of item occurencies | `{marks: ObjQL.count(5, 2)}` |
+| **unique(n, highestN?)** | match value by a number of unique items | `{awards: ObjQL.count(10, 50)}` |
 
 #### How do `min()`/`max()` work?
 
