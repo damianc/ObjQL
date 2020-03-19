@@ -23,6 +23,7 @@ import unique from './src/unique';
 import equal from './src/equal';
 import is from './src/is';
 import _in from './src/in';
+import range from './src/range';
 
 const functions = {
 	firstChar,
@@ -49,7 +50,8 @@ const functions = {
 	unique,
 	equal,
 	is,
-	_in
+	_in,
+	range
 };
 
 export default functions;

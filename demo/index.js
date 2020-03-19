@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	group: ObjQL.in(['A', 'C'])
+	age: ObjQL.range(15, 25)
 });
 
 console.log(queried);
