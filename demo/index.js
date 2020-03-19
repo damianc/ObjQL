@@ -12,7 +12,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	stuff: ObjQL.count('aa', 1)
+	dob: ObjQL.date('HH:mm:ss', '15:30:15')
 });
 
 console.log(queried);

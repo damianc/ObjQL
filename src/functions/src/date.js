@@ -1,13 +1,39 @@
 const date = ObjQL => {
 
-	return (dateString) => {
+	const getDatePart = (part) => {}
+
+	return (dateFormat, dateValue) => {
 		return ObjQL.check((val) => {
-			const [day, month, year] = dateString.split('.');
+			const passed = {};
+
+			const yearIdx = dateFormat.indexOf('YYYY');
+			if (yearIdx !== -1) passed.year = dateValue.slice(yearIdx, yearIdx + 4);
+
+			const monthIdx = dateFormat.indexOf('MM');
+			if (monthIdx !== -1) passed.month = dateValue.slice(monthIdx, monthIdx + 2);
+
+			const dayIdx = dateFormat.indexOf('DD');
+			if (dayIdx !== -1) passed.day = dateValue.slice(dayIdx, dayIdx + 2);
+
+			const hourIdx = dateFormat.indexOf('HH');
+			if (hourIdx !== -1) passed.hour = dateValue.slice(hourIdx, hourIdx + 2);
+
+			const minuteIdx = dateFormat.indexOf('mm');
+			if (minuteIdx !== -1) passed.minute = dateValue.slice(minuteIdx, minuteIdx + 2);
+
+			const secondIdx = dateFormat.indexOf('ss');
+			if (secondIdx !== -1) passed.second = dateValue.slice(secondIdx, secondIdx + 2);
+
+			/**/
+
 			let matches = true;
 
-			if (val.getDate() != day) matches = false;
-			if (val.getMonth() + 1 != month) matches = false;
-			if (year && val.getFullYear() != year) matches = false;
+			if (passed.year && passed.year != val.getFullYear()) matches = false;
+			if (passed.month && passed.month != val.getMonth() + 1) matches = false;
+			if (passed.day && passed.day != val.getDate()) matches = false;
+			if (passed.hour && passed.hour != val.getHours()) matches = false;
+			if (passed.minute && passed.minute != val.getMinutes()) matches = false;
+			if (passed.second && passed.second != val.getSeconds()) matches = false;
 
 			return matches;
 		});

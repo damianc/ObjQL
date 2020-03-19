@@ -87,8 +87,10 @@ Functions used to check a value being an instance of `Date()`.
 | **minute(minute)** | match value by a minute | `{orders: ObjQL.minute(30)}` |
 | **second(second)** | match value by a second | `{lap: ObjQL.second(10)}` |
 | **millisecond(ms)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
-| **date(dateString**) | match value by a date (_DD.MM.YYYY_ or _DD.MM_) | `{birth_date: ObjQL.date('14.02')}` |
+| **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', 14.02')}` |
 | **weekDay(weekDayIndex)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
+
+> The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second.
 
 ### Array of Numbers
 
