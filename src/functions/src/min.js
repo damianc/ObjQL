@@ -1,13 +1,16 @@
 const min = ObjQL => {
 
-	return (expectedResult, expectedResultMax = null) => {
+	return (expectedResult) => {
 		return ObjQL.check((val) => {
+			if (!val) return;
+
 			const minOfNums = Math.min(...val);
 
-			if (expectedResultMax === null) {
-				return minOfNums === expectedResult;
+			if (ObjQL.x.isRangeParam(expectedResult)) {
+				const [min, max] = expectedResult;
+				return minOfNums >= min && minOfNums <= max;
 			} else {
-				return minOfNums >= expectedResult && minOfNums <= expectedResultMax;
+				return minOfNums === expectedResult;
 			}
 		});
 	};

@@ -2,8 +2,9 @@ const month = ObjQL => {
 
 	return (month) => {
 		return ObjQL.check((val) => {
-			const monthIndex = val.getMonth() + 1;
+			if (!val) return;
 
+			const monthIndex = val.getMonth() + 1;
 			return month === monthIndex;
 		});
 	};

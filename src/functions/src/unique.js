@@ -1,15 +1,16 @@
 const unique = ObjQL => {
 
-	return (expectedResult, expectedResultMax = null) => {
+	return (expectedResult) => {
 		return ObjQL.check((val) => {
 			if (!val) return;
 			
 			const uniqueValues = new Set(val);
 
-			if (expectedResultMax === null) {
-				return uniqueValues.size === expectedResult;
+			if (ObjQL.x.isRangeParam(expectedResult)) {
+				const [min, max] = expectedResult;
+				return uniqueValues.size >= min && uniqueValues.size <= max;
 			} else {
-				return uniqueValues.size >= expectedResult && uniqueValues.size <= expectedResultMax;
+				return uniqueValues.size === expectedResult;
 			}
 		});
 	};

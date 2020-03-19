@@ -126,12 +126,12 @@ Functions used to check a value being an instance of `Date()`.
 
 | Function | Purpose | Example |
 |----------|---------|---------|
-| **min(n, highestN?)** | match value by minimum value(s) in an array | `{height: ObjQL.min(180, 190)}` |
-| **max(n, highestN?)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
-| **avg(n, highestN?)** | match value by average value(s) of an array | `{test: ObjQL.avg(4, 5)}` |
-| **sum(n, highestN?)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
-| **count(item, n, highestN?)** | match value by a number of item occurencies | `{marks: ObjQL.count(5, 2)}` |
-| **unique(n, highestN?)** | match value by a number of unique items | `{awards: ObjQL.unique(10, 50)}` |
+| **min(numberOrRange)** | match value by minimum value(s) in an array | `{height: ObjQL.min([180, 190])}` |
+| **max(numberOrRange)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
+| **avg(numberOrRange)** | match value by average value(s) of an array | `{test: ObjQL.avg([4, 5])}` |
+| **sum(numberOrRange)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
+| **count(item, numberOrRange)** | match value by a number of item occurencies | `{marks: ObjQL.count(5, 2)}` |
+| **unique(numberOrRange)** | match value by a number of unique items | `{awards: ObjQL.unique([10, 50])}` |
 
 #### How do `min()`/`max()` work?
 
@@ -148,7 +148,7 @@ const result = collection.where({
 // John has not as his minimum value is 3
 
 const result2 = collection.where({
-	marks: ObjQL.min(2, 4)
+	marks: ObjQL.min([2, 4])
 });
 // both Mark and John have been matched
 // given minimum value is from the range 2-4

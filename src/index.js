@@ -18,4 +18,10 @@ ObjQL.extend = (functionName, functionFactory) => {
 let fnEntries = Object.entries(functions);
 fnEntries.forEach(([name, cb]) => ObjQL.extend(name, cb));
 
+ObjQL.x = {
+	isRangeParam(param) {
+		return Array.isArray(param) && param.length == 2 && (param[0] < param[1]);
+	}
+};
+
 export default ObjQL;

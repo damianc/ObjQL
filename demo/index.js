@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	name: ObjQL.like('%A_a_')
+	name: ObjQL.firstChar('J')
 });
 
 console.log(queried);
