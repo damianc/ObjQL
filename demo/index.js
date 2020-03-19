@@ -13,7 +13,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	points: ObjQL.count(4, [1,2])
+	points: ObjQL.max([4,5])
 });
 
 console.log(queried);
