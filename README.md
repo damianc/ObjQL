@@ -60,6 +60,9 @@ const queried = queryable.where({
 
 | Function | Purpose | Example |
 |----------|---------|---------|
+| **equal(value, strict?)** | match value that equals another one | `{age: ObjQL.equal('20', false)}` |
+| **is(value)** | match value that is equal to another one (uses _Object.is()_) | `{result: ObjQL.is(NaN)}` |
+| **in(valuesArray)** | match value that equals one from an array | `{group: ObjQL.in(['A', 'B', 'C', 'D'])}` |
 | **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
 | **check(fn)** | match value by a custom condition | `{name: ObjQL.check((val, rec) => val === rec.surname)}` |
 

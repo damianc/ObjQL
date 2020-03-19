@@ -11,6 +11,7 @@ ObjQL.check = fn => {
 };
 
 ObjQL.extend = (functionName, functionFactory) => {
+	if (functionName == '_in') functionName = 'in';
 	ObjQL[functionName] = functionFactory(ObjQL);
 };
 
