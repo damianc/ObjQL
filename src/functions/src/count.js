@@ -10,8 +10,7 @@ const count = ObjQL => {
 			const itemOccurencies = itemMatches ? itemMatches.length : 0;
 
 			if (ObjQL.x.isRangeParam(expectedResult)) {
-				const [min, max] = expectedResult;
-				return itemOccurencies >= min && itemOccurencies <= max;
+				return ObjQL.x.isInRange(itemOccurencies, expectedResult);
 			} else {
 				return itemOccurencies === expectedResult;
 			}

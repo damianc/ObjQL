@@ -7,8 +7,7 @@ const max = ObjQL => {
 			const maxOfNums = Math.max(...val);
 
 			if (ObjQL.x.isRangeParam(expectedResult)) {
-				const [min, max] = expectedResult;
-				return maxOfNums >= min && maxOfNums <= max;
+				return ObjQL.x.isInRange(maxOfNums, expectedResult);
 			} else {
 				return maxOfNums === expectedResult;
 			}

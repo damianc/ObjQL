@@ -7,8 +7,7 @@ const sum = ObjQL => {
 			const sumOfNums = val.reduce((a, b) => a + b, 0);
 
 			if (ObjQL.x.isRangeParam(expectedResult)) {
-				const [min, max] = expectedResult;
-				return sumOfNums >= min && sumOfNums <= max;
+				return ObjQL.x.isInRange(sumOfNums, expectedResult);
 			} else {
 				return sumOfNums === expectedResult;
 			}

@@ -7,8 +7,7 @@ const unique = ObjQL => {
 			const uniqueValues = new Set(val);
 
 			if (ObjQL.x.isRangeParam(expectedResult)) {
-				const [min, max] = expectedResult;
-				return uniqueValues.size >= min && uniqueValues.size <= max;
+				return ObjQL.x.isInRange(uniqueValues.size, expectedResult);
 			} else {
 				return uniqueValues.size === expectedResult;
 			}
