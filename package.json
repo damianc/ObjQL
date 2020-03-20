@@ -5,7 +5,8 @@
   "main": "objql.js",
   "scripts": {
     "build": "node node_modules/webpack/bin/webpack.js --env.mode=production --config webpack.config.js",
-    "build-demo": "node node_modules/webpack/bin/webpack.js --env.mode=demo --config webpack.config.js"
+    "build-demo": "node node_modules/webpack/bin/webpack.js --env.mode=demo --config webpack.config.js",
+    "build:all": "npm run build & npm run build-demo"
   },
   "repository": {
     "type": "git",

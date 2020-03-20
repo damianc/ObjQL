@@ -7,8 +7,7 @@ const min = ObjQL => {
 			const minOfNums = Math.min(...val);
 
 			if (ObjQL.x.isRangeParam(expectedResult)) {
-				const [min, max] = expectedResult;
-				return minOfNums >= min && minOfNums <= max;
+				return ObjQL.x.isInRange(minOfNums, expectedResult);
 			} else {
 				return minOfNums === expectedResult;
 			}

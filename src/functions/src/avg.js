@@ -8,8 +8,7 @@ const avg = ObjQL => {
 			const average = sumOfNums / val.length;
 
 			if (ObjQL.x.isRangeParam(expectedResult)) {
-				const [min, max] = expectedResult;
-				return average >= min && average <= max;
+				return ObjQL.x.isInRange(average, expectedResult);
 			} else {
 				return average === expectedResult;
 			}

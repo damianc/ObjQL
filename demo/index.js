@@ -14,7 +14,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	obj: ObjQL.hasKeys(['a', 'b'], 'SOME')
+	points: ObjQL.count(3, [null,1])
 });
 
 console.log(queried);

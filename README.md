@@ -126,11 +126,11 @@ Functions used to check a value being an instance of `Date()`.
 
 | Function | Purpose | Example |
 |----------|---------|---------|
-| **min(numberOrRange)** | match value by minimum value(s) in an array | `{height: ObjQL.min([180, 190])}` |
+| **min(numberOrRange)** | match value by minimum value(s) in an array | `{height: ObjQL.min([180, null])}` |
 | **max(numberOrRange)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
 | **avg(numberOrRange)** | match value by average value(s) of an array | `{test: ObjQL.avg([4, 5])}` |
 | **sum(numberOrRange)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
-| **count(item, numberOrRange)** | match value by a number of item occurencies | `{marks: ObjQL.count(5, 2)}` |
+| **count(item, numberOrRange)** | match value by a number of item occurencies | `{comment: ObjQL.count('fuc', [null, 3])}` |
 | **unique(numberOrRange)** | match value by a number of unique items | `{awards: ObjQL.unique([10, 50])}` |
 
 #### How do `min()`/`max()` work?
@@ -140,6 +140,8 @@ const collection = ObjQL([
 	{name: 'John', marks: [3, 4, 6]},
 	{name: 'Mark', marks: [2, 3, 5]}
 ]);
+
+
 
 const result = collection.where({
 	marks: ObjQL.min(2)
@@ -152,6 +154,20 @@ const result2 = collection.where({
 });
 // both Mark and John have been matched
 // given minimum value is from the range 2-4
+
+
+
+const result3 = collection.where({
+	marks: ObjQL.min([null, 2])
+});
+// only Mark has been matched
+// minimum value must be less or equal to 2 [null, 2]
+
+const result4 = collection.where({
+	marks: ObjQL.min([2, null])
+});
+// both Mark and John have been matched
+// minimum value must be greater or equal to 2 [2, null]
 ```
 
 ### Objects

@@ -20,7 +20,18 @@ fnEntries.forEach(([name, cb]) => ObjQL.extend(name, cb));
 
 ObjQL.x = {
 	isRangeParam(param) {
-		return Array.isArray(param) && param.length == 2 && (param[0] < param[1]);
+		return (
+			Array.isArray(param) && param.length == 2 && (
+				(param[0] < param[1]) ||
+				(param[0] == null && param[1] != null) ||
+				(param[0] != null && param[1] == null)
+			)
+		);
+	},
+	isInRange(value, [min, max]) {
+		if (min == null && max != null) return value <= max;
+		if (min != null && max == null) return value >= min;
+		return value >= min && value <= max;
 	}
 };
 
