@@ -29,6 +29,7 @@ import like from './src/like';
 import hasKey from './src/hasKey';
 import hasKeys from './src/hasKeys';
 import hasProp from './src/hasProp';
+import hasProps from './src/hasProps';
 
 const functions = {
 	firstChar,
@@ -61,7 +62,8 @@ const functions = {
 	like,
 	hasKey,
 	hasKeys,
-	hasProp
+	hasProp,
+	hasProps
 };
 
 export default functions;
