@@ -19,7 +19,9 @@ module.exports = env => {
 			path: path.resolve(__dirname, outputPoint[mode][0]),
 			filename: outputPoint[mode][1],
 			library: 'ObjQL',
-			libraryTarget: 'umd'
+			libraryTarget: 'umd',
+			umdNamedDefine: true,
+			globalObject: 'this'
 		}
 	};
 };

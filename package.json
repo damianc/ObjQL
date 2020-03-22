@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node node_modules/webpack/bin/webpack.js --env.mode=production --config webpack.config.js",
     "build-demo": "node node_modules/webpack/bin/webpack.js --env.mode=demo --config webpack.config.js",
-    "build:all": "npm run build & npm run build-demo"
+    "build:all": "npm run build & npm run build-demo",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,9 @@
   "license": "ISC",
   "homepage": "https://github.com/damianc/objql#readme",
   "devDependencies": {
+    "jasmine": "^3.5.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "dependencies": {}
 }

@@ -2,7 +2,7 @@ const is = ObjQL => {
 
 	return (value) => {
 		return ObjQL.check((val) => {
-			if (!val) return;
+			if (typeof val == 'undefined') return;
 			
 			return Object.is(value, val);
 		});
