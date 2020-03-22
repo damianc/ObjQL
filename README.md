@@ -133,6 +133,11 @@ Functions used to check a value being an instance of `Date()`.
 | **count(item, numberOrRange)** | match value by a number of item occurencies | `{comment: ObjQL.count('fuc', [null, 3])}` |
 | **unique(numberOrRange)** | match value by a number of unique items | `{awards: ObjQL.unique([10, 50])}` |
 
+> *Example ranges*:
+> * `count('a', [1, 4])` - `a` >= 1 and `a` <= 4
+> * `count('a', [2, null])` - `a` >= 2
+> * `count('a', [null, 5])` - `a` <= 5
+
 #### How do `min()`/`max()` work?
 
 ```
