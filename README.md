@@ -136,3 +136,14 @@ const result4 = collection.where({
 | **hasValues(valuesArr, mode)** | match object that has the given values, _all_ or _some_ depending on `mode` (`ALL` being default value or `SOME`) | `{config: ObjQL.hasValues(['PL', 'FR'], 'SOME')}` |
 | **hasProp(keyName, value)** | match object that has a given key equal to given value | `{theme: ObjQL.hasProp('color', 'red')}` |
 | **hasProps(pairArr, mode)** | match object that has the given keys equal to a respective value (depending on `mode`: `ALL` (default) or `SOME`) | `{config: ObjQL.hasProps([['language', 'PL'], ['location', 'Poland']])}` |
+
+### Types
+
+| Function | Purpose | Example |
+|----------|---------|---------|
+| **isType(type)** | match value by the type (_uses Object#toString(), matching is case insensitive_) | `{pattern: ObjQL.isType('regexp')}` |
+| **isInstanceOf(klazz)** | match value that is instance of the given class | `{publishedAt: ObjQL.isInstanceOf(Date)}` |
+| **isNull()** | match value that equals `null` | `{projects: ObjQL.isNull()}` |
+| **isUndefined()** | match value that is undefined | `{dob: ObjQL.isUndefined()}` |
+| **isTruthy()** | match value that is _truthy_ | `{results: ObjQL.isTruthy()}` |
+| **isFalsy()** | match value that is _falsy_ | `{skills: ObjQL.isFalsy()}` |

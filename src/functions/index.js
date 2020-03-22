@@ -32,6 +32,12 @@ import hasProp from './src/hasProp';
 import hasProps from './src/hasProps';
 import hasValue from './src/hasValue';
 import hasValues from './src/hasValues';
+import isNull from './src/isNull';
+import isUndefined from './src/isUndefined';
+import isTruthy from './src/isTruthy';
+import isFalsy from './src/isFalsy';
+import isInstanceOf from './src/isInstanceOf';
+import isType from './src/isType';
 
 const functions = {
 	firstChar,
@@ -67,7 +73,13 @@ const functions = {
 	hasProp,
 	hasProps,
 	hasValue,
-	hasValues
+	hasValues,
+	isNull,
+	isUndefined,
+	isTruthy,
+	isFalsy,
+	isInstanceOf,
+	isType
 };
 
 export default functions;
