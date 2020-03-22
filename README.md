@@ -134,9 +134,9 @@ Functions used to check a value being an instance of `Date()`.
 | **unique(numberOrRange)** | match value by a number of unique items | `{awards: ObjQL.unique([10, 50])}` |
 
 > *Example ranges*:
-> * `count('a', [1, 4])` - `a` >= 1 and `a` <= 4
-> * `count('a', [2, null])` - `a` >= 2
-> * `count('a', [null, 5])` - `a` <= 5
+> * `count('a', [1, 4])` - a number of occurencies of `a` >= 1 and <= 4
+> * `count('a', [2, null])` - a number of occurencies of `a` >= 2
+> * `count('a', [null, 5])` - a number of occurencies of `a` <= 5
 
 #### How do `min()`/`max()` work?
 
