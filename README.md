@@ -20,63 +20,14 @@ const queried = queryable.where({
 // => [{name: 'Adam', age: 18}]
 ```
 
-## Requesting a Value
+## Shortcuts for Functions
 
-### Value Must Equal Another Value
-
-```
-...where({
-	name: 'John'
-})
-
-// or
-
-...where({
-	name: ObjQL.equal('John')
-})
-```
-
-### Value Must Match to Pattern
-
-```
-...where({
-	name: /^J/
-})
-
-// or
-
-...where({
-	name: ObjQL.regExp(/^J/)
-})
-```
-
-### Value Must Equal One of Values
-
-```
-...where({
-	group: new Set(['A', 'B', 'C'])
-})
-
-// or
-
-...where({
-	group: ObjQL.in(['A', 'B', 'C'])
-})
-```
-
-### Numeric Value Must be Contained in a Range
-
-```
-...where({
-	age: [20, 32]
-})
-
-// or
-
-...where({
-	age: ObjQL.range(20, 32)
-})
-```
+| Function | Shortcut |
+|----------|----------|
+| `{name: ObjQL.equal('John')}` | `{name: 'John'}` |
+| `{name: ObjQL.regExp(/^J/)}` | `{name: /^J/}` |
+| `group: ObjQL.in(['A', 'B', 'C'])` | `{group: new Set(['A', 'B', 'C'])}` |
+| `{age: ObjQL.range(20, 32)}` | `{age: [20, 32]}` |
 
 ## Functions
 
