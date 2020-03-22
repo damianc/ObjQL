@@ -9,12 +9,12 @@ const collection = [
 	{name: 'Michael', age: 24, group: 'F', points: [3,3,2], dob: new Date('8/16/1980')},
 	{name: 'Amadeusz', age: 38, group: 'G', points: [4,4,5,5], dob: new Date('10/20/1980')},
 	{name: 'George', age: NaN, obj: {a: 1, b: 2}},
-	{name: 'Manville', age: 32, obj: {a: 1, c: 2}}
+	{name: 'Manville', age: 32, obj: {a: 1, c: 3}}
 ];
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	obj: ObjQL.hasProps([['a', 1], ['b', 5]], 'SOME')
+	obj: ObjQL.hasValue(20)
 });
 
 console.log(queried);
