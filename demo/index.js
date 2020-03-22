@@ -14,7 +14,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	obj: ObjQL.hasValue(20)
+	obj: ObjQL.hasValues([1, 2, 3], 'SOME')
 });
 
 console.log(queried);

@@ -31,6 +31,7 @@ import hasKeys from './src/hasKeys';
 import hasProp from './src/hasProp';
 import hasProps from './src/hasProps';
 import hasValue from './src/hasValue';
+import hasValues from './src/hasValues';
 
 const functions = {
 	firstChar,
@@ -65,7 +66,8 @@ const functions = {
 	hasKeys,
 	hasProp,
 	hasProps,
-	hasValue
+	hasValue,
+	hasValues
 };
 
 export default functions;
