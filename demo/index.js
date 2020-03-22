@@ -14,7 +14,7 @@ const collection = [
 
 const queryable = ObjQL(collection);
 const queried = queryable.where({
-	points: ObjQL.count(3, [null,1])
+	obj: ObjQL.hasProp('b', 2)
 });
 
 console.log(queried);

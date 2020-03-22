@@ -176,3 +176,4 @@ const result4 = collection.where({
 |----------|---------|---------|
 | **hasKey(keyName)** | match object that has a given key | `{config: ObjQL.hasKey('language')}` |
 | **hasKeys(keyName, mode)** | match object that has the given keys: **all** (if `mode` equals `ALL`, it's default value) or **some** (if `mode` equals `SOME`) | `{theme: ObjQL.hasKeys(['color', 'background'], 'SOME')}` |
+| **hasProp(keyName, value)** | match object that has a given key equal to given value | `{theme: ObjQL.hasProp('color', 'red')}` |
