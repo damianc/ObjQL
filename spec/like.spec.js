@@ -1,6 +1,6 @@
 const {default: ObjQL} = require('../prod/objql');
 
-describe('The in() method', () => {
+describe('The like() method', () => {
 	it('should select names whose first and third letter is A', () => {
 		const collection = ObjQL([
 			{name: 'Adam', age: 18},

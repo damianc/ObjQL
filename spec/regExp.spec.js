@@ -1,6 +1,6 @@
 const {default: ObjQL} = require('../prod/objql');
 
-describe('The in() method', () => {
+describe('The regExp() method', () => {
 	it('should select names whose first letter is A and does not contain s letter', () => {
 		const collection = ObjQL([
 			{name: 'Adam', age: 18},
