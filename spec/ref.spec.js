@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The ref() method', () => {
 	it('should select people having the same name as father', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', fatherName: 'George'},
 			{name: 'Mark', fatherName: 'Mark'}
 		]);
@@ -19,7 +19,7 @@ describe('The ref() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', fatherName: 'George'},
 			{name: 'Mark', fatherName: 'Mark'}
 		]);

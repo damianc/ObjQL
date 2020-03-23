@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The nthChar() method', () => {
 	it('should select names whose third letter equals a', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
@@ -18,7 +18,7 @@ describe('The nthChar() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 

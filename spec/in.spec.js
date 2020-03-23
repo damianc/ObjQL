@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The in() method', () => {
 	it('should select people being 18, 21 or 24', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},
@@ -22,7 +22,7 @@ describe('The in() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},

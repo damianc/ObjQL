@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The regExp() method', () => {
 	it('should select names whose first letter is A and does not contain s letter', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},
@@ -21,7 +21,7 @@ describe('The regExp() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},
@@ -38,7 +38,7 @@ describe('The regExp() method', () => {
 	});
 
 	it('should select names whose first letter is A and does not contain s letter (case insensitive)', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},

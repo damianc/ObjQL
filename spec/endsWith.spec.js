@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The endsWith() method', () => {
 	it('should select names that end with hn', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
@@ -18,7 +18,7 @@ describe('The endsWith() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
@@ -32,7 +32,7 @@ describe('The endsWith() method', () => {
 	});
 
 	it('should select names that end with hn (case insensitive)', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 

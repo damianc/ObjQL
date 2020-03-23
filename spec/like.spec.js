@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The like() method', () => {
 	it('should select names whose first and third letter is A', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},
@@ -22,7 +22,7 @@ describe('The like() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},

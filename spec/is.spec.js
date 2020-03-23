@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The is() method', () => {
 	it('should select people being under 1 year', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},
@@ -21,7 +21,7 @@ describe('The is() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam', age: 18},
 			{name: 'Mark', age: 24},
 			{name: 'Amadeus', age: 32},

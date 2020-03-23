@@ -12,10 +12,11 @@ const collection = [
 	{name: 'Michael', age: 24}
 ];
 
-const queryable = ObjQL(collection);
-const queried = queryable.where({
-	age: 18
-});
+const results = ObjQL
+	.from(collection)
+	.where({
+		age: 18
+	});
 
 // => [{name: 'Adam', age: 18}]
 ```
@@ -92,7 +93,7 @@ Functions used to check a value being an instance of `Date()`.
 #### How do `min()`/`max()` work?
 
 ```
-const collection = ObjQL([
+const collection = ObjQL.from([
 	{name: 'John', marks: [3, 4, 6]},
 	{name: 'Mark', marks: [2, 3, 5]}
 ]);

@@ -12,7 +12,7 @@ const collection = [
 	{name: 'Manville', age: null, obj: {a: 1, c: 3}, extra: /abc/}
 ];
 
-const queryable = ObjQL(collection);
+const queryable = ObjQL.from(collection);
 const queried = queryable.where({
 	extra: ObjQL.isType('array')
 });

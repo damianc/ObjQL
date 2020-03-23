@@ -2,7 +2,7 @@ const {default: ObjQL} = require('../prod/objql');
 
 describe('The startsWith() method', () => {
 	it('should select names that start with Ad', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
@@ -18,7 +18,7 @@ describe('The startsWith() method', () => {
 	});
 
 	it('should select no name', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
@@ -32,7 +32,7 @@ describe('The startsWith() method', () => {
 	});
 
 	it('should select names that start with Ad (case insensitive)', () => {
-		const collection = ObjQL([
+		const collection = ObjQL.from([
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 

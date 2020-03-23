@@ -1,9 +1,11 @@
 import QueryableArray from './queryable-array';
 import functions from './functions';
 
-function ObjQL(arr) {
+function ObjQL() {}
+
+ObjQL.from = arr => {
 	return new QueryableArray(...arr);
-}
+};
 
 ObjQL.check = fn => {
 	fn.isChecker = true;
