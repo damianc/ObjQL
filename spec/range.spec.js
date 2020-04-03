@@ -9,7 +9,7 @@ describe('The range() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.range(15, 30)
 		});
 
@@ -29,7 +29,7 @@ describe('The range() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.range(40, 50)
 		});
 

@@ -6,7 +6,7 @@ describe('The startsWith() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.startsWith('Ad')
 		});
 
@@ -22,7 +22,7 @@ describe('The startsWith() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.startsWith('ad')
 		});
 
@@ -36,7 +36,7 @@ describe('The startsWith() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.startsWith('aD', false)
 		});
 

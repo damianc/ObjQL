@@ -14,11 +14,41 @@ const collection = [
 
 const results = ObjQL
 	.from(collection)
+	.select('*')
 	.where({
 		age: 18
-	});
+	})
+	.sort('name')
+	.limit(2,3);
 
 // => [{name: 'Adam', age: 18}]
+```
+
+Currently, the `select()` method only supports `'*'` as a first parameter.  
+It will change in one of the future releases.
+
+> Methods must be called in the following order: `select()`, `where()`, `sort()` and `limit()`. The last two may be omitted, however.
+
+## Compound fields
+
+Items in a collection can have additional fields added. To do so, use a callback as a second parameter of the `select()` method.
+
+```
+.select('*', item => ({
+	desc: `${item.name} being ${item.age} having a ${item.extra}`
+}))
+```
+
+### Dependencies of compound fields
+
+When some field doesn't have some property, a compound field may have a value that contains `undefined`, what might not be intended.  
+  
+As a third parameter of the `select()` method, you can pass an array of strings - property names that all must be present in item to add compound properties.
+
+```
+.select('*', item => ({
+	desc: `${item.name} being ${item.age} having a ${item.extra}`
+}), ['name', 'age', 'extra'])
 ```
 
 ## Shortcuts for Functions

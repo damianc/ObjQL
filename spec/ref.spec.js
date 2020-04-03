@@ -7,7 +7,7 @@ describe('The ref() method', () => {
 			{name: 'Mark', fatherName: 'Mark'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.ref('fatherName')
 		});
 
@@ -24,7 +24,7 @@ describe('The ref() method', () => {
 			{name: 'Mark', fatherName: 'Mark'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.ref('father')
 		});
 

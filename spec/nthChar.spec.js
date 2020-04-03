@@ -6,7 +6,7 @@ describe('The nthChar() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.nthChar('a', 2)
 		});
 
@@ -22,7 +22,7 @@ describe('The nthChar() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.nthChar('x', 2)
 		});
 

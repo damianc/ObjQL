@@ -13,8 +13,14 @@ const collection = [
 ];
 
 const queryable = ObjQL.from(collection);
-const queried = queryable.where({
-	extra: ObjQL.isType('array')
-});
+const queried = queryable
+.select('*', item => ({
+	desc: `${item.name} being ${item.age} having a ${item.extra}`
+}), ['name', 'age', 'extra'])
+.where({
+	name: /^\w/
+})
+.sort('name')
+.limit(2, 4);
 
 console.log(queried);

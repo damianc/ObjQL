@@ -9,7 +9,7 @@ describe('The in() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.in([18, 21, 24])
 		});
 
@@ -29,7 +29,7 @@ describe('The in() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.in(['18', '21', '24'])
 		});
 
