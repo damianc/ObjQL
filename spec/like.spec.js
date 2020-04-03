@@ -9,7 +9,7 @@ describe('The like() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.like('A_a%')
 		});
 
@@ -29,7 +29,7 @@ describe('The like() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.like('a_a%')
 		});
 

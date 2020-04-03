@@ -9,7 +9,7 @@ describe('The is() method', () => {
 			{name: 'John', age: 0}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.is(0)
 		});
 
@@ -28,7 +28,7 @@ describe('The is() method', () => {
 			{name: 'John', age: 0}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.is(-0)
 		});
 

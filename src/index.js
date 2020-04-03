@@ -1,10 +1,10 @@
-import QueryableArray from './queryable-array';
+import { QueryableCollection } from './collections';
 import functions from './functions';
 
 function ObjQL() {}
 
 ObjQL.from = arr => {
-	return new QueryableArray(...arr);
+	return new QueryableCollection(arr);
 };
 
 ObjQL.check = fn => {

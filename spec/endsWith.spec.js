@@ -6,7 +6,7 @@ describe('The endsWith() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.endsWith('hn')
 		});
 
@@ -22,7 +22,7 @@ describe('The endsWith() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.endsWith('HN')
 		});
 
@@ -36,7 +36,7 @@ describe('The endsWith() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.endsWith('Hn', false)
 		});
 

@@ -6,7 +6,7 @@ describe('The lastChar() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.lastChar('n')
 		});
 
@@ -22,7 +22,7 @@ describe('The lastChar() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.lastChar('x')
 		});
 

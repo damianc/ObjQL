@@ -7,7 +7,7 @@ describe('The check() method', () => {
 			{name: 'Mark', results: [2, 4, 4, 5]}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			results: ObjQL.check(result => result[0] === 4)
 		});
 
@@ -24,7 +24,7 @@ describe('The check() method', () => {
 			{name: 'Mark', results: [2, 4, 4, 5]}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			results: ObjQL.check(result => result[0] === 5)
 		});
 

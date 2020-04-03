@@ -6,7 +6,7 @@ describe('The firstChar() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.firstChar('A')
 		});
 
@@ -22,7 +22,7 @@ describe('The firstChar() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.firstChar('X')
 		});
 

@@ -9,7 +9,7 @@ describe('The regExp() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.regExp(/^A[^s]+$/)
 		});
 
@@ -28,7 +28,7 @@ describe('The regExp() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.regExp(/^a[^s]+$/)
 		});
 
@@ -45,7 +45,7 @@ describe('The regExp() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.regExp(/^a[^s]+$/i)
 		});
 

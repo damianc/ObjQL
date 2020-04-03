@@ -9,7 +9,7 @@ describe('The equal() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.equal(18)
 		});
 
@@ -28,7 +28,7 @@ describe('The equal() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.equal('18')
 		});
 
@@ -45,7 +45,7 @@ describe('The equal() method', () => {
 			{name: 'John', age: 38}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			age: ObjQL.equal('18', false)
 		});
 

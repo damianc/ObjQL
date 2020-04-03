@@ -6,7 +6,7 @@ describe('The contains() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.contains('ma')
 		});
 
@@ -22,7 +22,7 @@ describe('The contains() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.contains('MA')
 		});
 
@@ -36,7 +36,7 @@ describe('The contains() method', () => {
 			{name: 'Adam'}, {name: 'Mark'}, {name: 'Amadeus'}, {name: 'John'}
 		]);
 
-		const result = collection.where({
+		const result = collection.select('*').where({
 			name: ObjQL.contains('mA', false)
 		});
 
