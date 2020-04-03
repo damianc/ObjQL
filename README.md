@@ -29,6 +29,12 @@ It will change in one of the future releases.
 
 > Methods must be called in the following order: `select()`, `where()`, `sort()` and `limit()`. The last two may be omitted, however.
 
+## Instalattion
+
+```
+npm i objql-object-query-language
+```
+
 ## Compound fields
 
 Items in a collection can have additional fields added. To do so, use a callback as a second parameter of the `select()` method.
