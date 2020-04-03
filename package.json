@@ -1,7 +1,7 @@
 {
-  "name": "objql",
+  "name": "@damianc/obj-ql",
   "version": "2.0.0",
-  "description": "",
+  "description": "A helpful library allowing you to select particular entries from an array of objects.",
   "main": "objql.js",
   "scripts": {
     "build": "node node_modules/webpack/bin/webpack.js --env.mode=production --config webpack.config.js",

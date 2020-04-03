@@ -130,13 +130,13 @@ const collection = ObjQL.from([
 
 
 
-const result = collection.where({
+const result = collection.select('*').where({
 	marks: ObjQL.min(2)
 });
 // only Mark has been matched
 // John has not as his minimum value is 3
 
-const result2 = collection.where({
+const result2 = collection.select('*').where({
 	marks: ObjQL.min([2, 4])
 });
 // both Mark and John have been matched
@@ -144,13 +144,13 @@ const result2 = collection.where({
 
 
 
-const result3 = collection.where({
+const result3 = collection.select('*').where({
 	marks: ObjQL.min([null, 2])
 });
 // only Mark has been matched
 // minimum value must be less or equal to 2 [null, 2]
 
-const result4 = collection.where({
+const result4 = collection.select('*').where({
 	marks: ObjQL.min([2, null])
 });
 // both Mark and John have been matched
