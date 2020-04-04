@@ -126,15 +126,15 @@ Functions used to check a value being an instance of `Date()`.
 
 | Function | Purpose | Example |
 |----------|---------|---------|
-| **day(dayIndex)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
-| **month(monthIndex)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
-| **year(fullYear)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
-| **hour(hour)** | match value by an hour | `{orders: ObjQL.hour(15)}` |
-| **minute(minute)** | match value by a minute | `{orders: ObjQL.minute(30)}` |
-| **second(second)** | match value by a second | `{lap: ObjQL.second(10)}` |
-| **millisecond(ms)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
+| **day(dayIndexOrRange)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
+| **month(monthIndexOrRange)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
+| **year(fullYearOrRange)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
+| **hour(hourOrRange)** | match value by an hour | `{orders: ObjQL.hour(15)}` |
+| **minute(minuteOrRange)** | match value by a minute | `{orders: ObjQL.minute(30)}` |
+| **second(secondOrRange)** | match value by a second | `{lap: ObjQL.second(10)}` |
+| **millisecond(msOrRange)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
 | **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', '14.02')}` |
-| **weekDay(weekDayIndex)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
+| **weekDay(weekDayIndexOrRange)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
 
 > The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second.
 

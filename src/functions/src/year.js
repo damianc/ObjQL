@@ -5,7 +5,12 @@ const year = ObjQL => {
 			if (!val) return;
 
 			const fullYear = val.getFullYear();
-			return year === fullYear;
+			
+			if (ObjQL.x.isRangeParam(year)) {
+				return ObjQL.x.isInRange(fullYear, year);
+			} else {
+				return fullYear === year;
+			}
 		});
 	};
 	

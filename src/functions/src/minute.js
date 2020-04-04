@@ -5,7 +5,12 @@ const minute = ObjQL => {
 			if (!val) return;
 
 			const _minute = val.getMinutes();
-			return minute === _minute;
+
+			if (ObjQL.x.isRangeParam(minute)) {
+				return ObjQL.x.isInRange(_minute, minute);
+			} else {
+				return _minute === minute;
+			}
 		});
 	};
 	

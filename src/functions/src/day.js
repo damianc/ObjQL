@@ -5,7 +5,12 @@ const day = ObjQL => {
 			if (!val) return;
 			
 			const dayIndex = val.getDate();
-			return day === dayIndex;
+
+			if (ObjQL.x.isRangeParam(day)) {
+				return ObjQL.x.isInRange(dayIndex, day);
+			} else {
+				return dayIndex === day;
+			}
 		});
 	};
 	

@@ -5,7 +5,12 @@ const second = ObjQL => {
 			if (!val) return;
 
 			const _second = val.getSeconds();
-			return second === _second;
+			
+			if (ObjQL.x.isRangeParam(second)) {
+				return ObjQL.x.isInRange(_second, second);
+			} else {
+				return _second === second;
+			}
 		});
 	};
 	

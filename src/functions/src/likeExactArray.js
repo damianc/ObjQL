@@ -6,11 +6,6 @@ const  likeExactArray = ObjQL => {
 			
 			let matchedItems = 0;
 			expectedResult.forEach((expected, idx) => {
-				// if (!checkIndexes && val.includes(expected)) {
-				// 	matchedItems += 1;
-				// } else if (checkIndexes && expectedResult[idx] === val[idx]) {
-				// 	matchedItems += 1;
-				// }
 				if (
 					(!checkIndexes && val.includes(expected)) ||
 					(checkIndexes && expectedResult[idx] === val[idx])
