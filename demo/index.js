@@ -18,7 +18,7 @@ const queried = queryable
 	desc: `${item.name} being ${item.age} having a ${item.extra}`
 }), ['name', 'age', 'extra'])
 .where({
-	age: ObjQL.isFloat()
+	name: ObjQL.match((_,__,idx,coll) => coll[idx+1] && coll[idx+1].name == 'George')
 })
 // .sort('name')
 // .limit(2, 4);

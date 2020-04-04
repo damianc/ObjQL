@@ -1,6 +1,6 @@
 import { CheckType } from './get-check-type';
 
-export const doCheck = function (actual, expected, record, checkType) {
+export const doCheck = function (actual, expected, record, checkType, entireCollection, idxInCollection) {
 	switch (checkType) {
 		case CheckType.EQUAL:
 			return actual === expected;
@@ -11,6 +11,6 @@ export const doCheck = function (actual, expected, record, checkType) {
 		case CheckType.BETWEEN:
 			return actual >= expected[0] && actual <= expected[1];
 		case CheckType.MATCH:
-			return expected(actual, record);
+			return expected(actual, record, idxInCollection, entireCollection);
 	}
 };

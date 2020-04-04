@@ -82,6 +82,31 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 | **match(fn)** | match value by a custom condition | `{name: ObjQL.match((val, rec) => val === rec.surname)}` |
 | **size(numberOrRange)** | match value by its length or size | `{term: ObjQL.size([20, null])}` |
 
+#### The `match()` matcher
+
+A callback passed to the `match()` matcher can accept up to 4 parameters:
+* value of a field in a current record
+* entire current record
+* index of the current record in a entire collection
+* entire collection 
+
+```
+// get items followed by another item whose
+// `result` property is greater than or equal to
+// the `result` property of the current item
+
+ObjQL.from(collection)
+.select('*')
+.where({
+	name: ObjQL.match((name, item, idx, coll) => {
+		return (
+			coll[idx+1] &&
+			coll[idx+1].result >= item.result
+		);
+	})
+})
+```
+
 ### Strings
 
 | Function | Purpose | Example |

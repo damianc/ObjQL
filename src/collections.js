@@ -33,13 +33,13 @@ export class FilterableCollection {
 		} else {
 			const queriesEntries = Object.entries(queries);
 			
-			filteredCollection = this.collection.filter(item => {
+			filteredCollection = this.collection.filter((item, idx) => {
 				let doesMatch = true;
 
 				for (let queriesEntry of queriesEntries) {
 					let [key, value] = queriesEntry;
 					let checkType = getCheckType(value);
-					if (!doCheck(item[key], value, item, checkType)) {
+					if (!doCheck(item[key], value, item, checkType, Array.from(this.collection), idx)) {
 						doesMatch = false;
 						break;
 					}
