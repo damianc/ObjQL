@@ -38,6 +38,7 @@ import isTruthy from './src/isTruthy';
 import isFalsy from './src/isFalsy';
 import isInstanceOf from './src/isInstanceOf';
 import isType from './src/isType';
+import size from './src/size';
 
 const functions = {
 	firstChar,
@@ -79,7 +80,8 @@ const functions = {
 	isTruthy,
 	isFalsy,
 	isInstanceOf,
-	isType
+	isType,
+	size
 };
 
 export default functions;

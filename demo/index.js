@@ -18,9 +18,9 @@ const queried = queryable
 	desc: `${item.name} being ${item.age} having a ${item.extra}`
 }), ['name', 'age', 'extra'])
 .where({
-	name: /^\w/
+	name: ObjQL.size([5, null])
 })
-.sort('name')
-.limit(2, 4);
+// .sort('name')
+// .limit(2, 4);
 
 console.log(queried);
