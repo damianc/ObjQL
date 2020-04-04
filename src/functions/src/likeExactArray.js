@@ -1,4 +1,4 @@
-const  likeArray = ObjQL => {
+const  likeExactArray = ObjQL => {
 
 	return (expectedResult) => {
 		return ObjQL.match((val) => {
@@ -11,10 +11,10 @@ const  likeArray = ObjQL => {
 				}
 			});
 
-			return expectedResult.length === matchedItems;
+			return expectedResult.length === matchedItems && val.length === matchedItems;
 		});
 	};
 	
 };
 
-export default likeArray;
+export default likeExactArray;

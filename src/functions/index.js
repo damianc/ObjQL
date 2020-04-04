@@ -42,6 +42,7 @@ import size from './src/size';
 import isInteger from './src/isInteger';
 import isFloat from './src/isFloat';
 import likeArray from './src/likeArray';
+import likeExactArray from './src/likeExactArray';
 
 const functions = {
 	firstChar,
@@ -87,7 +88,8 @@ const functions = {
 	size,
 	isInteger,
 	isFloat,
-	likeArray
+	likeArray,
+	likeExactArray
 };
 
 export default functions;
