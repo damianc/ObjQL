@@ -81,9 +81,16 @@ export class SortableCollection extends Array {
 	}
 
 	sort(field) {
+		const isDescending = field[0] == '-';
+		const fieldName = isDescending ? field.slice(1) : field;
+
 		return super.sort((a, b) => {
-			const fieldA = a[field] || null;
-			const fieldB = b[field] || null;
+			let fieldA = a[fieldName] || null;
+			let fieldB = b[fieldName] || null;
+
+			if (isDescending) {
+				[fieldA, fieldB] = [fieldB, fieldA];
+			}
 
 			return (
 				typeof fieldA == 'string' ?
