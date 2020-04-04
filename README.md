@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/v/objql-object-query-language)
+
 # ObjQL
 
 **ObjQL** is a helpful library allowing you to select particular entries from a collection, i.e., an array of objects. An example of code using that is below:
