@@ -13,6 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/damianc/objql.git"
   },
+  "keywords": [
+    "javascript",
+    "javascript array",
+    "object selector",
+    "collection filter"
+  ],
   "author": "damianc (Damian Czapiewski)",
   "license": "ISC",
   "homepage": "https://github.com/damianc/objql#readme",
