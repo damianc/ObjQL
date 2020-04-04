@@ -41,6 +41,7 @@ import isType from './src/isType';
 import size from './src/size';
 import isInteger from './src/isInteger';
 import isFloat from './src/isFloat';
+import arrayLike from './src/arrayLike';
 
 const functions = {
 	firstChar,
@@ -85,7 +86,8 @@ const functions = {
 	isType,
 	size,
 	isInteger,
-	isFloat
+	isFloat,
+	arrayLike
 };
 
 export default functions;
