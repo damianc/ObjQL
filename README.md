@@ -89,7 +89,7 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 A callback passed to the `match()` matcher can accept up to 4 parameters:
 * value of a field in a current record
 * entire current record
-* index of the current record in a entire collection
+* index of the current record in the entire collection
 * entire collection 
 
 ```
