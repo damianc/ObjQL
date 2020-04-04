@@ -1,7 +1,7 @@
 const ref = ObjQL => {
 
 	return (fieldName) => {
-		return ObjQL.check((val, rec) => {
+		return ObjQL.match((val, rec) => {
 			if (!val) return;
 			
 			return val === rec[fieldName];

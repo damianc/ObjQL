@@ -1,7 +1,7 @@
 const year = ObjQL => {
 
 	return (year) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const fullYear = val.getFullYear();

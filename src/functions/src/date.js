@@ -3,7 +3,7 @@ const date = ObjQL => {
 	const getDatePart = (part) => {}
 
 	return (dateFormat, dateValue) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			const passed = {};

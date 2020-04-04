@@ -79,7 +79,7 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 | **regExp(re)** | match value that matches to a regular expression | `{name: ObjQL.regExp(/^.A/i)}` |
 | **like(pattern)** | match value that matches to a pattern (_%_ means 0+ chars, _\__ means 1 char) | `{name: ObjQL.like('%A_a_')}` |
 | **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
-| **check(fn)** | match value by a custom condition | `{name: ObjQL.check((val, rec) => val === rec.surname)}` |
+| **match(fn)** | match value by a custom condition | `{name: ObjQL.match((val, rec) => val === rec.surname)}` |
 
 ### Strings
 

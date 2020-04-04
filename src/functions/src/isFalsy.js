@@ -1,7 +1,7 @@
 const isFalsy = ObjQL => {
 
 	return () => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			return !val;
 		});
 	};

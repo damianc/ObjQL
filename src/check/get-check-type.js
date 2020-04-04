@@ -3,7 +3,7 @@ export const CheckType = {
 	IN: Symbol('Check: IN'),
 	REGEXP: Symbol('Check: REGEXP'),
 	BETWEEN: Symbol('Check: BETWEEN'),
-	CHECK: Symbol('Check: CHECK')
+	MATCH: Symbol('Check: MATCH')
 };
 
 export const getCheckType = function (expected) {
@@ -26,7 +26,7 @@ export const getCheckType = function (expected) {
 		return CheckType.BETWEEN;
 	}
 
-	if (TYPE == 'function' && expected.isChecker === true) {
-		return CheckType.CHECK;
+	if (TYPE == 'function' && expected.isMatcher === true) {
+		return CheckType.MATCH;
 	}
 };

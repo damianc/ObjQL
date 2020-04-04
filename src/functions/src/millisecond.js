@@ -1,7 +1,7 @@
 const millisecond = ObjQL => {
 
 	return (millisecond) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const _millisecond = val.getMilliseconds();

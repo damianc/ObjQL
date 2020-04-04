@@ -1,7 +1,7 @@
 const max = ObjQL => {
 
 	return (expectedResult) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const maxOfNums = Math.max(...val);

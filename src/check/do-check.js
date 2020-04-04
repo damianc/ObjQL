@@ -10,7 +10,7 @@ export const doCheck = function (actual, expected, record, checkType) {
 			return expected.test(actual);
 		case CheckType.BETWEEN:
 			return actual >= expected[0] && actual <= expected[1];
-		case CheckType.CHECK:
+		case CheckType.MATCH:
 			return expected(actual, record);
 	}
 };

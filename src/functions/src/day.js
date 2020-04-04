@@ -1,7 +1,7 @@
 const day = ObjQL => {
 
 	return (day) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			const dayIndex = val.getDate();

@@ -1,6 +1,6 @@
 const {default: ObjQL} = require('../prod/objql');
 
-describe('The check() method', () => {
+describe('The match() method', () => {
 	it('should select people whose first result equals 4', () => {
 		const collection = ObjQL.from([
 			{name: 'Adam', results: [4, 5, 2, 3]},
@@ -8,7 +8,7 @@ describe('The check() method', () => {
 		]);
 
 		const result = collection.select('*').where({
-			results: ObjQL.check(result => result[0] === 4)
+			results: ObjQL.match(result => result[0] === 4)
 		});
 
 		expect(result).toEqual(
@@ -25,7 +25,7 @@ describe('The check() method', () => {
 		]);
 
 		const result = collection.select('*').where({
-			results: ObjQL.check(result => result[0] === 5)
+			results: ObjQL.match(result => result[0] === 5)
 		});
 
 		expect(result).toEqual(

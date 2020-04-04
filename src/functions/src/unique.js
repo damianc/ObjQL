@@ -1,7 +1,7 @@
 const unique = ObjQL => {
 
 	return (expectedResult) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			const uniqueValues = new Set(val);

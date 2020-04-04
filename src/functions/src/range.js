@@ -1,7 +1,7 @@
 const range = ObjQL => {
 
 	return (min, max) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			return val >= min && val <= max;

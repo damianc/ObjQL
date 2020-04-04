@@ -1,7 +1,7 @@
 const sum = ObjQL => {
 
 	return (expectedResult) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const sumOfNums = val.reduce((a, b) => a + b, 0);

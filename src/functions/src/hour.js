@@ -1,7 +1,7 @@
 const hour = ObjQL => {
 
 	return (hour) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			const _hour = val.getHours();

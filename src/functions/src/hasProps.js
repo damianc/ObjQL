@@ -1,7 +1,7 @@
 const hasProps = ObjQL => {
 
 	return (pairArr, checkMode = 'ALL') => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			let pairsNumber = 0;

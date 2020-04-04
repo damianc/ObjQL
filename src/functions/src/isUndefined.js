@@ -1,7 +1,7 @@
 const isUndefined = ObjQL => {
 
 	return () => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			return typeof val == 'undefined';
 		});
 	};

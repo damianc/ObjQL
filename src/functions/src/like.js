@@ -1,7 +1,7 @@
 const like = ObjQL => {
 
 	return (pattern) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const reString = pattern.replace(/\%/g, '[\\w\\W]*').replace(/\_/g, '.');

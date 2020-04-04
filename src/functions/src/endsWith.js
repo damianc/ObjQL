@@ -1,7 +1,7 @@
 const endsWith = ObjQL => {
 
 	return (substr, caseSensitive = true) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			const _substr = caseSensitive ? substr : substr.toLowerCase();

@@ -1,7 +1,7 @@
 const equal = ObjQL => {
 
 	return (value, strict = true) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			if (strict === true) {

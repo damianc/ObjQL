@@ -1,7 +1,7 @@
 const month = ObjQL => {
 
 	return (month) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const monthIndex = val.getMonth() + 1;

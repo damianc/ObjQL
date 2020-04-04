@@ -1,7 +1,7 @@
 const hasKeys = ObjQL => {
 
 	return (keysNamesArr, checkMode = 'ALL') => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			let keysNumber = 0;

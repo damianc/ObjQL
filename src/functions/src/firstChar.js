@@ -1,7 +1,7 @@
 const firstChar = ObjQL => {
 
 	return (expectedChar) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			return val[0] === expectedChar;

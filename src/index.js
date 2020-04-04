@@ -7,8 +7,8 @@ ObjQL.from = arr => {
 	return new QueryableCollection(arr);
 };
 
-ObjQL.check = fn => {
-	fn.isChecker = true;
+ObjQL.match = fn => {
+	fn.isMatcher = true;
 	return fn;
 };
 

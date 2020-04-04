@@ -1,7 +1,7 @@
 const hasValues = ObjQL => {
 
 	return (valuesArr, checkMode = 'ALL') => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			const values = Object.values(val);

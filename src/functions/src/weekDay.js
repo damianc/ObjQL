@@ -1,7 +1,7 @@
 const weekDay = ObjQL => {
 
 	return (weekDay) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 
 			let weekDayIndex = val.getDay();

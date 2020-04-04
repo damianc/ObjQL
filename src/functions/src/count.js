@@ -1,7 +1,7 @@
 const count = ObjQL => {
 
 	return (item, expectedResult) => {
-		return ObjQL.check((val) => {
+		return ObjQL.match((val) => {
 			if (!val) return;
 			
 			const itemMatches = val.join('$$').match(
