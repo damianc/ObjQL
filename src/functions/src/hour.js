@@ -5,7 +5,12 @@ const hour = ObjQL => {
 			if (!val) return;
 			
 			const _hour = val.getHours();
-			return hour === _hour;
+
+			if (ObjQL.x.isRangeParam(hour)) {
+				return ObjQL.x.isInRange(_hour, hour);
+			} else {
+				return _hour === hour;
+			}
 		});
 	};
 	

@@ -8,7 +8,12 @@ const weekDay = ObjQL => {
 			// Sunday is 0 by default
 			// we use 7 instead
 			if (weekDayIndex === 0) weekDayIndex = 7;
-			return weekDay === weekDayIndex;
+			
+			if (ObjQL.x.isRangeParam(weekDay)) {
+				return ObjQL.x.isInRange(weekDayIndex, weekDay);
+			} else {
+				return weekDayIndex === weekDay;
+			}
 		});
 	};
 	

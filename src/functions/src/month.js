@@ -5,7 +5,12 @@ const month = ObjQL => {
 			if (!val) return;
 
 			const monthIndex = val.getMonth() + 1;
-			return month === monthIndex;
+			
+			if (ObjQL.x.isRangeParam(month)) {
+				return ObjQL.x.isInRange(monthIndex, month);
+			} else {
+				return monthIndex === month;
+			}
 		});
 	};
 	

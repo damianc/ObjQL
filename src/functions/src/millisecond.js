@@ -5,7 +5,12 @@ const millisecond = ObjQL => {
 			if (!val) return;
 
 			const _millisecond = val.getMilliseconds();
-			return millisecond === _millisecond;
+			
+			if (ObjQL.x.isRangeParam(millisecond)) {
+				return ObjQL.x.isInRange(_millisecond, millisecond);
+			} else {
+				return _millisecond === millisecond;
+			}
 		});
 	};
 	
