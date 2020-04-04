@@ -18,7 +18,7 @@ const queried = queryable
 	desc: `${item.name} being ${item.age} having a ${item.extra}`
 }), ['name', 'age', 'extra'])
 .where({
-	points: ObjQL.likeExactArray([3,2])
+	points: ObjQL.likeExactArray([3,3,2], true)
 })
 // .sort('name')
 // .limit(2, 4);

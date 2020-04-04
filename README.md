@@ -82,7 +82,7 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 | **match(fn)** | match value by a custom condition | `{name: ObjQL.match((val, rec) => val === rec.surname)}` |
 | **size(numberOrRange)** | match value by its length or size | `{term: ObjQL.size([20, null])}` |
 | **likeArray(valuesArr)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can contain other values) | `{flags: ObjQL.likeArray(['canWrite', 'canEdit'])}` |
-| **likeExactArray(valuesArr)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can't contain other values) | `{badges: ObjQL.likeExactArray(['Freshman'])}` |
+| **likeExactArray(valuesArr, checkIndexes?=false)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can't contain other values) | `{badges: ObjQL.likeExactArray(['Freshman'])}` |
 
 #### The `match()` matcher
 
