@@ -29,7 +29,7 @@ It will change in one of the future releases.
 
 > Methods must be called in the following order: `select()`, `where()`, `sort()` and `limit()`. The last two may be omitted, however.
 
-## Instalattion
+## Installation
 
 ```
 npm i objql-object-query-language
