@@ -10,7 +10,7 @@ export const getCheckType = function (expected) {
 	const TYPE = typeof expected;
 	const CONSTRUCTOR = expected.constructor && expected.constructor.name.toLowerCase();
 
-	if (TYPE == 'string' || TYPE == 'number') {
+	if (TYPE == 'string' || TYPE == 'number' || TYPE == 'boolean') {
 		return CheckType.EQUAL;
 	}
 

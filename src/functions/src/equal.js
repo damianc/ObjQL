@@ -1,9 +1,7 @@
 const equal = ObjQL => {
 
 	return (value, strict = true) => {
-		return ObjQL.match((val) => {
-			if (!val) return;
-			
+		return ObjQL.match((val) => {			
 			if (strict === true) {
 				return value === val;
 			} else {

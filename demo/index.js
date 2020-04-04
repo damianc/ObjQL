@@ -1,8 +1,8 @@
 import ObjQL from '../prod/objql';
 
 const collection = [
-	{name: 'Adam', age: 18, stuff: ['a', 'aa'], group: 'A', fatherName: 'Luck', points: [1,2,3,4], dob: new Date('4/11/1990 15:30:15.012')},
-	{name: 'Adam', age: 42.0005, stuff: ['aa'], group: 'B', points: [1,2,0,4], dob: new Date('10/10/1999')},
+	{name: 'Adam', age: 18, admin: true, stuff: ['a', 'aa'], group: 'A', fatherName: 'Luck', points: [1,2,3,4], dob: new Date('4/11/1990 15:30:15.012')},
+	{name: 'Adam', age: 42.0005, admin: false, stuff: ['aa'], group: 'B', points: [1,2,0,4], dob: new Date('10/10/1999')},
 	{name: 'Mark', age: 19, stuff: ['a'], group: 'C', fatherName: 'Mark', points: [0,2,3,4], dob: new Date('4/11/1994')},
 	{name: 'Joseph', age: 34, group: 'D', points: [1,0,3,4], dob: new Date('1/1/2000')},
 	{name: 'Jack', age: 42, group: 'E', points: [1,2,3,0, 44, 42, 24], dob: new Date('12/24/2005')},
@@ -18,7 +18,7 @@ const queried = queryable
 	desc: `${item.name} being ${item.age} having a ${item.extra}`
 }), ['name', 'age', 'extra'])
 .where({
-	points: ObjQL.likeExactArray([3,3,2], true)
+	name: 'Adam'
 })
 // .sort('name')
 // .limit(2, 4);
