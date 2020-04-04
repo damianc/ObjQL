@@ -185,3 +185,5 @@ const result4 = collection.select('*').where({
 | **isUndefined()** | match value that is undefined | `{dob: ObjQL.isUndefined()}` |
 | **isTruthy()** | match value that is _truthy_ | `{results: ObjQL.isTruthy()}` |
 | **isFalsy()** | match value that is _falsy_ | `{skills: ObjQL.isFalsy()}` |
+| **isInteger()** | match value that is an integer | `{progress: ObjQL.isInteger()}` |
+| **isFloat()** | match value that is a float | `{average: ObjQL.isFloat()}` |

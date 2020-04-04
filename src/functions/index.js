@@ -39,6 +39,8 @@ import isFalsy from './src/isFalsy';
 import isInstanceOf from './src/isInstanceOf';
 import isType from './src/isType';
 import size from './src/size';
+import isInteger from './src/isInteger';
+import isFloat from './src/isFloat';
 
 const functions = {
 	firstChar,
@@ -81,7 +83,9 @@ const functions = {
 	isFalsy,
 	isInstanceOf,
 	isType,
-	size
+	size,
+	isInteger,
+	isFloat
 };
 
 export default functions;
