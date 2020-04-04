@@ -72,7 +72,7 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 
 | Function | Purpose | Example |
 |----------|---------|---------|
-| **equal(value, strict?)** | match value that equals another one | `{age: ObjQL.equal('20', false)}` |
+| **equal(value, strict?=true)** | match value that equals another one | `{age: ObjQL.equal('20', false)}` |
 | **is(value)** | match value that is equal to another one (uses _Object.is()_) | `{result: ObjQL.is(NaN)}` |
 | **in(valuesArray)** | match value that equals one from an array | `{group: ObjQL.in(['A', 'B', 'C', 'D'])}` |
 | **range(min, max)** | match value that is from the range _&lt;min;max&gt;_ | `{age: ObjQL.range(15, 25)}` |
@@ -89,9 +89,9 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 | **firstChar(char)** | match value by the first character | `{city: ObjQL.firstChar('A')}` |
 | **lastChar(char)** | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
 | **nthChar(char, position)** | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
-| **startsWith(substr, caseSensitive?)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
-| **endsWith(substr, caseSensitive?)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
-| **contains(substr, caseSensitive?)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
+| **startsWith(substr, caseSensitive?=true)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
+| **endsWith(substr, caseSensitive?=true)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
+| **contains(substr, caseSensitive?=true)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
 
 ### Date
 
