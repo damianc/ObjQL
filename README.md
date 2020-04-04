@@ -81,7 +81,7 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 | **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
 | **match(fn)** | match value by a custom condition | `{name: ObjQL.match((val, rec) => val === rec.surname)}` |
 | **size(numberOrRange)** | match value by its length or size | `{term: ObjQL.size([20, null])}` |
-| **arrayLike(valuesArr)** | match value that is an array containing all the values from the array passed to the matcher | `{flags: ObjQL.arrayLike(['canWrite', 'canEdit'])}` |
+| **likeArray(valuesArr)** | match value that is an array containing all the values from the array passed to the matcher | `{flags: ObjQL.likeArray(['canWrite', 'canEdit'])}` |
 
 #### The `match()` matcher
 
