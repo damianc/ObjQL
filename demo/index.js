@@ -18,7 +18,7 @@ const queried = queryable
 	desc: `${item.name} being ${item.age} having a ${item.extra}`
 }), ['name', 'age', 'extra'])
 .where({
-	dob: ObjQL.millisecond(12)
+	dob: ObjQL.date('@uuu', '@12')
 })
 // .sort('name')
 // .limit(2, 4);

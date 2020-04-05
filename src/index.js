@@ -41,11 +41,11 @@ ObjQL.x = {
 		}
 
 		if (typeof input == 'string') {
-			// YYYY-MM-DD HH:mm:ss.uuuu
+			// YYYY-MM-DD HH:mm:ss.uuu
 			let format1 = /(\d{4})\-(\d{1,2})\-(\d{1,2})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
-			// DD.MM.YYYY HH:mm:ss.uuuu
+			// DD.MM.YYYY HH:mm:ss.uuu
 			let format2 = /(\d{1,2})\.(\d{1,2})\.(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
-			// MM/DD/YYYY HH:mm:ss.uuuu
+			// MM/DD/YYYY HH:mm:ss.uuu
 			let format3 = /(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
 
 			let year, month, day;

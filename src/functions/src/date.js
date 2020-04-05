@@ -3,9 +3,10 @@ const date = ObjQL => {
 	const getDatePart = (part) => {}
 
 	return (dateFormat, dateValue) => {
-		return ObjQL.match((val) => {
-			if (!val) return;
-			
+		return ObjQL.match((_val) => {
+			if (!_val) return;
+
+			const val = ObjQL.x.parseDate(_val);
 			const passed = {};
 
 			const yearIdx = dateFormat.indexOf('YYYY');
@@ -26,6 +27,9 @@ const date = ObjQL => {
 			const secondIdx = dateFormat.indexOf('ss');
 			if (secondIdx !== -1) passed.second = dateValue.slice(secondIdx, secondIdx + 2);
 
+			const millisecondIdx = dateFormat.indexOf('uuu');
+			if (millisecondIdx !== -1) passed.millisecond = dateValue.slice(millisecondIdx, millisecondIdx + 3)
+
 			/**/
 
 			let matches = true;
@@ -36,6 +40,7 @@ const date = ObjQL => {
 			if (passed.hour && passed.hour != val.getHours()) matches = false;
 			if (passed.minute && passed.minute != val.getMinutes()) matches = false;
 			if (passed.second && passed.second != val.getSeconds()) matches = false;
+			if (passed.millisecond && passed.millisecond != val.getMilliseconds()) matches = false;
 
 			return matches;
 		});
