@@ -7,6 +7,11 @@ const day = ObjQL => {
 			const val = ObjQL.x.parseDate(_val);
 			const dayIndex = val.getDate();
 
+			if (typeof day != 'number') {
+				let date = ObjQL.x.parseDate(day);
+				day = date.getDate();
+			}
+
 			if (ObjQL.x.isRangeParam(day)) {
 				return ObjQL.x.isInRange(dayIndex, day);
 			} else {

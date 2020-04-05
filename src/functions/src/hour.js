@@ -7,6 +7,11 @@ const hour = ObjQL => {
 			
 			const _hour = val.getHours();
 
+			if (typeof hour != 'number') {
+				let date = ObjQL.x.parseDate(hour);
+				hour = date.getHours();
+			}
+
 			if (ObjQL.x.isRangeParam(hour)) {
 				return ObjQL.x.isInRange(_hour, hour);
 			} else {

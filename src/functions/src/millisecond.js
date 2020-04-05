@@ -6,6 +6,11 @@ const millisecond = ObjQL => {
 
 			const val = ObjQL.x.parseDate(_val);
 			const _millisecond = val.getMilliseconds();
+
+			if (typeof millisecond != 'number') {
+				let date = ObjQL.x.parseDate(millisecond);
+				millisecond = date.getMilliseconds();
+			}
 			
 			if (ObjQL.x.isRangeParam(millisecond)) {
 				return ObjQL.x.isInRange(_millisecond, millisecond);

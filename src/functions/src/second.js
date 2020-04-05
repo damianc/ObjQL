@@ -6,6 +6,11 @@ const second = ObjQL => {
 
 			const val = ObjQL.x.parseDate(_val);
 			const _second = val.getSeconds();
+
+			if (typeof second != 'number') {
+				let date = ObjQL.x.parseDate(second);
+				second = date.getSeconds();
+			}
 			
 			if (ObjQL.x.isRangeParam(second)) {
 				return ObjQL.x.isInRange(_second, second);

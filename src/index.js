@@ -20,13 +20,30 @@ ObjQL.extend = (functionName, functionFactory) => {
 let fnEntries = Object.entries(functions);
 fnEntries.forEach(([name, cb]) => ObjQL.extend(name, cb));
 
+Object.defineProperty(ObjQL, 'CURRENT', {
+	get() {
+		return new Date();
+	}
+});
+
 ObjQL.x = {
 	isRangeParam(param) {
+		if (!Array.isArray(param)) return;
+		let [b, e] = param;
+
 		return (
-			Array.isArray(param) && param.length == 2 && (
-				(param[0] < param[1]) ||
-				(param[0] == null && param[1] != null) ||
-				(param[0] != null && param[1] == null)
+			param.length == 2 && (
+				(
+					(typeof b == 'number' && typeof e == 'number') &&
+					(
+						(b < e) ||
+						(b == null && e != null) ||
+						(b != null && e == null)
+					)
+				) || (
+					(typeof b == 'string' || typeof b == 'number' || (b.constructor && b.constructor.name == 'Date')) &&
+					(typeof e == 'string' || typeof e == 'number' || (e.constructor && e.constructor.name == 'Date'))
+				)
 			)
 		);
 	},
@@ -73,8 +90,8 @@ ObjQL.x = {
 			if (millisecond) dateParts.push(millisecond);
 
 			dateParts = dateParts.map((p, idx) => {
-				if (idx != 6 && p.length == 1) {
-					return ('0' + p);
+				if (idx !== 6 && p.length === 1) {
+					return '0' + p;
 				}
 				return p;
 			});
@@ -85,6 +102,24 @@ ObjQL.x = {
 		if (typeof input == 'number') {
 			return new Date(input);
 		}
+	},
+	isDateInput(input) {
+		// YYYY-MM-DD HH:mm:ss.uuu
+		let format1 = /(\d{4})\-(\d{1,2})\-(\d{1,2})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
+		// DD.MM.YYYY HH:mm:ss.uuu
+		let format2 = /(\d{1,2})\.(\d{1,2})\.(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
+		// MM/DD/YYYY HH:mm:ss.uuu
+		let format3 = /(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
+
+		return (
+			typeof input == 'number' || (input.constructor && input.constructor.name == 'Date') || (
+				typeof input == 'string' && (
+					format1.test(input) ||
+					format2.test(input) ||
+					format3.test(input)
+				)
+			)
+		);
 	}
 };
 

@@ -6,6 +6,11 @@ const month = ObjQL => {
 
 			const val = ObjQL.x.parseDate(_val);
 			const monthIndex = val.getMonth() + 1;
+
+			if (typeof month != 'number') {
+				let date = ObjQL.x.parseDate(month);
+				month = date.getMonth() + 1;
+			}
 			
 			if (ObjQL.x.isRangeParam(month)) {
 				return ObjQL.x.isInRange(monthIndex, month);
