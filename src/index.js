@@ -41,35 +41,44 @@ ObjQL.x = {
 		}
 
 		if (typeof input == 'string') {
-			// YYYY-MM-DD HH:mm:ss
-			let format1 = /(\d{4})\-(\d{1,2})\-(\d{1,2})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2}))?)?/;
-			// DD.MM.YYYY HH:mm:ss
-			let format2 = /(\d{1,2})\.(\d{1,2})\.(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2}))?)?/;
-			// MM/DD/YYYY HH:mm:ss
-			let format3 = /(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2}))?)?/;
+			// YYYY-MM-DD HH:mm:ss.uuuu
+			let format1 = /(\d{4})\-(\d{1,2})\-(\d{1,2})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
+			// DD.MM.YYYY HH:mm:ss.uuuu
+			let format2 = /(\d{1,2})\.(\d{1,2})\.(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
+			// MM/DD/YYYY HH:mm:ss.uuuu
+			let format3 = /(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?:\:(\d{1,2})(?:\.(\d{1,3}))?)?)?/;
 
 			let year, month, day;
-			let hour, minute, second;
+			let hour, minute, second, millisecond;
 
 			if (format1.test(input)) {
 				let matches = input.match(format1);
 				if (matches == null) return;
-				[, year, month, day, hour, minute, second] = matches;
+				[, year, month, day, hour, minute, second, millisecond] = matches;
 			} else if (format2.test(input)) {
 				let matches = input.match(format2);
 				if (matches == null) return;
-				[, day, month, year, hour, minute, second] = matches;
+				[, day, month, year, hour, minute, second, millisecond] = matches;
 			} else if (format3.test(input)) {
 				let matches = input.match(format3);
 				if (matches == null) return;
-				[, month, day, year, hour, minute, second] = matches;
+				[, month, day, year, hour, minute, second, millisecond] = matches;
 			}
 
 			let _month = parseInt(month) - 1;
 			let dateParts = [year, _month, day];
+
 			if (hour && minute) dateParts.push(hour, minute);
 			if (second) dateParts.push(second);
-			dateParts = dateParts.map(p => (p.length == 1) ? ('0' + p) : p);
+			if (millisecond) dateParts.push(millisecond);
+
+			dateParts = dateParts.map((p, idx) => {
+				if (idx != 6 && p.length == 1) {
+					return ('0' + p);
+				}
+				return p;
+			});
+
 			return new Date(...dateParts);
 		}
 
