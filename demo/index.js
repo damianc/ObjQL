@@ -18,7 +18,7 @@ const queried = queryable
 	desc: `${item.name} being ${item.age} having a ${item.extra}`
 }), ['name', 'age', 'extra'])
 .where({
-	dob: ObjQL.date('MM DD', ObjQL.CURRENT)
+	dob: ObjQL.weekDay(ObjQL.CURRENT)
 })
 // .sort('name')
 // .limit(2, 4);
