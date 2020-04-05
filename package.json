@@ -1,6 +1,6 @@
 {
   "name": "objql-object-query-language",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A helpful library allowing you to select particular entries from an array of objects.",
   "main": "objql.js",
   "scripts": {
