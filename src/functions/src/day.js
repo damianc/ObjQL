@@ -1,9 +1,10 @@
 const day = ObjQL => {
 
 	return (day) => {
-		return ObjQL.match((val) => {
-			if (!val) return;
+		return ObjQL.match((_val) => {
+			if (!_val) return;
 			
+			const val = ObjQL.x.parseDate(_val);
 			const dayIndex = val.getDate();
 
 			if (ObjQL.x.isRangeParam(day)) {

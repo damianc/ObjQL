@@ -1,9 +1,10 @@
 const month = ObjQL => {
 
 	return (month) => {
-		return ObjQL.match((val) => {
-			if (!val) return;
+		return ObjQL.match((_val) => {
+			if (!_val) return;
 
+			const val = ObjQL.x.parseDate(_val);
 			const monthIndex = val.getMonth() + 1;
 			
 			if (ObjQL.x.isRangeParam(month)) {
