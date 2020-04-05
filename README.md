@@ -124,14 +124,16 @@ ObjQL.from(collection)
 
 ### Date
 
-Functions used to check date that can be represented by:
+There are functions checking date that can be represented by:
 
+* a particular value (e.g., `month(4)` to match _April_)
 * an instance of the `Date()`
 * a timestamp (a number of milliseconds that have passed from 01.01.1970 00:00:00)
 * a string in one of the following formats:
 	* `YYYY-MM-DD HH:mm:ss.uuu`
 	* `DD.MM.YYYY HH:mm:ss.uuu`
 	* `MM/DD/YYYY HH:mm:ss.uuu`
+* the `ObjQL.CURRENT` constant
 
 > When it comes to the latest three, the following parts are optional: entire time part (`HH:mm:ss.uuu`), seconds with milliseconds (`ss.uuu`) and milliseconds (`uuu`).
 
@@ -147,7 +149,43 @@ Functions used to check date that can be represented by:
 | **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', '14.02')}` |
 | **weekDay(weekDayIndexOrRange)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
 
-> The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second.
+> The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second, `uuu` - millisecond.
+
+#### Examples of matching date
+
+* match entries where the `start_date` field is date whose month is April
+
+```
+where({
+	start_date: ObjQL.month(4)
+})
+```
+
+* match entries where the `start_date` field is date whose day is 14th and month is February
+
+```
+where({
+	start_date: ObjQL.date('DD.MM', '14.02')
+})
+```
+
+Note that the second parameter may be the standard date. In such a case, it does not have to match a format given as the first parameter. Elements from the first parameter will be used to compare dates:
+
+```
+where({
+	// pass entire date
+	// but only compare day and month
+	start_date: ObjQL.date('DD.MM', '2020-02-14 15:45:30')
+})
+```
+
+* match entries where the `event_date` field is date whose week day is Friday, Saturday or Sunday
+
+```
+where({
+	event_date: ObjQL.weekDay([5, 7])
+})
+```
 
 ### Array of Numbers
 
