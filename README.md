@@ -29,7 +29,7 @@ const results = ObjQL
 Currently, the `select()` method only supports `'*'` as a first parameter.  
 It will change in one of the future releases.
 
-> Methods must be called in the following order: `select()`, `where()`, `sort()` and `limit()`. The last two may be omitted, however.
+> Methods must be called in the following order: `from()`, `select()`, `where()`, `sort()` and `limit()`. The last two may be omitted, however.
 
 ## Installation
 
