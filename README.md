@@ -124,7 +124,16 @@ ObjQL.from(collection)
 
 ### Date
 
-Functions used to check a value being an instance of `Date()`.
+Functions used to check date that can be represented by:
+
+* an instance of the `Date()`
+* a timestamp (a number of milliseconds that have passed from 01.01.1970 00:00:00)
+* a string in one of the following formats:
+	* `YYYY-MM-DD HH:mm:ss.uuu`
+	* `DD.MM.YYYY HH:mm:ss.uuu`
+	* `MM/DD/YYYY HH:mm:ss.uuu`
+
+> When it comes to the latest three, the following parts are optional: entire time part (`HH:mm:ss.uuu`), seconds with milliseconds (`ss.uuu`) and milliseconds (`uuu`).
 
 | Function | Purpose | Example |
 |----------|---------|---------|
