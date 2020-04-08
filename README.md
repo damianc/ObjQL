@@ -282,29 +282,115 @@ There are functions checking date that can be represented by:
 * a particular value (e.g., `month(4)` to match _April_)
 * an instance of the `Date()`
 * a timestamp (a number of milliseconds that have passed from 01.01.1970 00:00:00)
+* the `ObjQL.CURRENT` constant
 * a string in one of the following formats:
 	* `YYYY-MM-DD HH:mm:ss.uuu`
 	* `DD.MM.YYYY HH:mm:ss.uuu`
 	* `MM/DD/YYYY HH:mm:ss.uuu`
-* the `ObjQL.CURRENT` constant
 
-> When it comes to the latest three, the following parts are optional: entire time part (`HH:mm:ss.uuu`), seconds with milliseconds (`ss.uuu`) and milliseconds (`uuu`).
+> When it comes to the last one, a time part can be added. The following time formats are allowed: `HH:mm`, `HH:mm:ss` and `HH:mm:ss.uuu` (`uuu` means milliseconds here).
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **day(dayIndexOrRange)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
-| **month(monthIndexOrRange)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
-| **year(fullYearOrRange)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
-| **hour(hourOrRange)** | match value by an hour | `{orders: ObjQL.hour(15)}` |
-| **minute(minuteOrRange)** | match value by a minute | `{orders: ObjQL.minute(30)}` |
-| **second(secondOrRange)** | match value by a second | `{lap: ObjQL.second(10)}` |
-| **millisecond(msOrRange)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
-| **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', '14.02')}` |
-| **weekDay(weekDayIndexOrRange)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
+#### `year(fullYearOrRange)`
 
-> The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second, `uuu` - millisecond.
+Matches a value by a full year (e.g., _1998_ rather than _98_).
 
-#### Examples of matching date
+```
+where({
+	registered: ObjQL.year(2010)
+})
+```
+
+#### `month(monthIndexOrRange)`
+
+Matches a value by a month in date.
+
+```
+where({
+	birth_date: ObjQL.month(12)
+})
+```
+
+#### `day(dayIndexOrRange)`
+
+Matches a value by a day in date.
+
+```
+where({
+	birth_date: ObjQL.day(20)
+})
+```
+
+#### `weekDay(weekDayIndexOrRange)`
+
+Matches a value by a week day; 1 is for Monday, 7 is for Sunday.
+
+```
+where({
+	weekend_visits: ObjQL.weekDay(6)
+})
+```
+
+#### `hour(hourOrRange)`
+
+Matches a value by an hour.
+
+```
+where({
+	orders: ObjQL.hour(15)
+})
+```
+
+#### `minute(minuteOrRange)`
+
+Matches a value by a minute.
+
+```
+where({
+	orders: ObjQL.minute(30)
+})
+```
+
+#### `second(secondOrRange)`
+
+Matches a value by a second.
+
+```
+where({
+	lap: ObjQL.second(10)
+})
+```
+
+#### `millisecond(msOrRange)`
+
+Matches a value by a millisecond.
+
+```
+where({
+	click: ObjQL.millisecond(12)
+})
+```
+
+#### `date(dateFormat, dateValue)`
+
+Matches a value by a date.
+
+```
+where({
+	birth_date: ObjQL.date('DD.MM', '14.02')
+})
+```
+
+The `dateFormat` parameter in the `date()` method can consist of the following parts:
+
+* `YYYY` - full year
+* `MM` - month
+* `DD` - day
+* `HH` - hour
+* `mm` - minute
+* `ss` - second
+* `uuu` - millisecond
+
+##### Examples of matching date
 
 * match entries where the `start_date` field is date whose month is April
 
