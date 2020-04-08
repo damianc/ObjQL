@@ -602,7 +602,6 @@ where({
 })
 ```
 
-
 ### Types
 
 | Function | Purpose | Example |
