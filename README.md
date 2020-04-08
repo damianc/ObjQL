@@ -97,7 +97,7 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 	* [`minute()`](#minuteminuteorrange)
 	* [`second()`](#secondsecondorrange)
 	* [`millisecond()`](#millisecondmsorrange)
-	* [`date()`](#datedateformar-datevalue)
+	* [`date()`](#datedateformat-datevalue)
 * Array of Numbers
 	* [`min()`](#minnumberorrange)
 	* [`max()`](#maxnumberorrange)
