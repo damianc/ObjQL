@@ -533,14 +533,75 @@ const result4 = collection.select('*').where({
 
 ### Objects
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **hasKey(keyName)** | match object that has a given key | `{config: ObjQL.hasKey('language')}` |
-| **hasKeys(keyNamesArr, mode)** | match object that has the given keys: **all** (if `mode` equals `ALL`, it's default value) or **some** (if `mode` equals `SOME`) | `{theme: ObjQL.hasKeys(['color', 'background'], 'SOME')}` |
-| **hasValue(value)** | match object that has a given value | `{theme: ObjQL.hasValue('pink')}` |
-| **hasValues(valuesArr, mode)** | match object that has the given values, _all_ or _some_ depending on `mode` (`ALL` being default value or `SOME`) | `{config: ObjQL.hasValues(['PL', 'FR'], 'SOME')}` |
-| **hasProp(keyName, value)** | match object that has a given key equal to given value | `{theme: ObjQL.hasProp('color', 'red')}` |
-| **hasProps(pairArr, mode)** | match object that has the given keys equal to a respective value (depending on `mode`: `ALL` (default) or `SOME`) | `{config: ObjQL.hasProps([['language', 'PL'], ['location', 'Poland']])}` |
+#### `hasKey(keyName)`
+
+Matches an object that has a given key.
+
+```
+where({
+	config: ObjQL.hasKey('language')
+})
+```
+
+#### `hasKeys(keyNamesArr, mode)`
+
+Matches an object that has the given keys:
+
+*  **all** if `mode` equals `ALL` (default value)
+* **some** if `mode` equals `SOME`
+
+```
+where({
+	theme: ObjQL.hasKeys(['color', 'background'], 'SOME')
+})
+```
+
+#### `hasValue(value)`
+
+Matches an object that has a given value.
+
+```
+where({
+	theme: ObjQL.hasValue('pink')
+})
+```
+
+#### `hasValues(valuesArr, mode)`
+
+Match an object that has the given values:
+
+*  **all** if `mode` equals `ALL` (default value)
+* **some** if `mode` equals `SOME`
+
+```
+where({
+	config: ObjQL.hasValues(['PL', 'FR'], 'SOME')
+})
+```
+
+#### `hasProp(keyName, value)`
+
+Matches an object that has a given key equal to given value.
+
+```
+where({
+	theme: ObjQL.hasProp('color', 'red')
+})
+```
+
+#### `hasProps(pairArr, mode)`
+
+Matches an object that has the given keys equal to a respective value:
+
+*  **all** if `mode` equals `ALL` (default value)
+* **some** if `mode` equals `SOME`
+
+```
+where({
+	config: ObjQL.hasProps([['language', 'PL'], ['location', 'Poland']])
+})
+```
+
 
 ### Types
 
