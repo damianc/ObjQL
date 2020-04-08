@@ -215,14 +215,65 @@ ObjQL.from(collection)
 
 ### Strings
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **firstChar(char)** | match value by the first character | `{city: ObjQL.firstChar('A')}` |
-| **lastChar(char)** | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
-| **nthChar(char, position)** | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
-| **startsWith(substr, caseSensitive?=true)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
-| **endsWith(substr, caseSensitive?=true)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
-| **contains(substr, caseSensitive?=true)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
+#### `firstChar(char)`
+
+Matches a value by the first character.
+
+```
+where({
+	city: ObjQL.firstChar('A')
+})
+```
+
+#### `lastChar(char)`
+
+Matches a value by the last character.
+
+```
+where({
+	city: ObjQL.lastChar('Z')
+})
+```
+
+#### `nthChar(char, position)`
+
+Matches a value by the n-th character.
+
+```
+where({
+	city: ObjQL.nthChar('D', 3)
+})
+```
+
+#### `startsWith(substr, caseSensitive?=true)`
+
+Matches a value by the beginning.
+
+```
+where({
+	city: ObjQL.startsWith('Los')
+})
+```
+
+#### `endsWith(substr, caseSensitive?=true)`
+
+Matches a value by the end.
+
+```
+where({
+	city: ObjQL.endsWith('os')
+})
+```
+
+#### `contains(substr, caseSensitive?=true)`
+
+Matches a value by a substring.
+
+```
+where({
+	city: ObjQL.contains('yo')
+})
+```
 
 ### Date
 
