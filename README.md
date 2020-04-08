@@ -428,21 +428,73 @@ where({
 
 ### Array of Numbers
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **min(numberOrRange)** | match value by minimum value(s) in an array | `{height: ObjQL.min([180, null])}` |
-| **max(numberOrRange)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
-| **avg(numberOrRange)** | match value by average value(s) of an array | `{test: ObjQL.avg([4, 5])}` |
-| **sum(numberOrRange)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
-| **count(item, numberOrRange)** | match value by a number of item occurencies | `{comment: ObjQL.count('fuc', [null, 3])}` |
-| **unique(numberOrRange)** | match value by a number of unique items | `{awards: ObjQL.unique([10, 50])}` |
+#### `min(numberOrRange)`
 
-> *Example ranges*:
-> * `count('a', [1, 4])` - a number of occurencies of `a` >= 1 and <= 4
-> * `count('a', [2, null])` - a number of occurencies of `a` >= 2
-> * `count('a', [null, 5])` - a number of occurencies of `a` <= 5
+Matches a value by minimum value(s) in an array.
 
-#### How do `min()`/`max()` work?
+```
+where({
+	results: ObjQL.min([250, null])
+})
+```
+
+#### `max(numberOrRange)`
+
+Matches a value by maximum value(s) in an array.
+
+```
+where({
+	heights: ObjQL.max(100)
+})
+```
+
+#### `avg(numberOrRange)`
+
+Matches a value by average value(s), i.e., the mean, of an array.
+
+```
+where({
+	test: ObjQL.avg([4, 5])
+})
+```
+
+#### `sum(numberOrRange)`
+
+Matches a value by sum of an array items.
+
+```
+where({
+	marks: ObjQL.sum(24)
+})
+```
+
+#### `count(item, numberOrRange)`
+
+Matches a value by a number of item occurencies.
+
+```
+where({
+	comment: ObjQL.count('fuc', [null, 3])
+})
+```
+
+#### `unique(numberOrRange)`
+
+Matches a value by a number of unique items.
+
+```
+where({
+	awards: ObjQL.unique([10, 50])
+})
+```
+
+##### Example ranges
+
+* `count('a', [1, 4])` - a number of occurencies of `a` >= 1 and <= 4
+* `count('a', [2, null])` - a number of occurencies of `a` >= 2
+* `count('a', [null, 5])` - a number of occurencies of `a` <= 5
+
+##### How do `min()`, `max()`, etc. work?
 
 ```
 const collection = ObjQL.from([
