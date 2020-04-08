@@ -72,21 +72,123 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 
 ### General
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **equal(value, strict?=true)** | match value that equals another one | `{age: ObjQL.equal('20', false)}` |
-| **is(value)** | match value that is equal to another one (uses _Object.is()_) | `{result: ObjQL.is(NaN)}` |
-| **in(valuesArray)** | match value that equals one from an array | `{group: ObjQL.in(['A', 'B', 'C', 'D'])}` |
-| **range(min, max)** | match value that is from the range _&lt;min;max&gt;_ | `{age: ObjQL.range(15, 25)}` |
-| **regExp(re)** | match value that matches to a regular expression | `{name: ObjQL.regExp(/^.A/i)}` |
-| **like(pattern)** | match value that matches to a pattern (_%_ means 0+ chars, _\__ means 1 char) | `{name: ObjQL.like('%A_a_')}` |
-| **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
-| **match(fn)** | match value by a custom condition | `{name: ObjQL.match((val, rec) => val === rec.surname)}` |
-| **size(numberOrRange)** | match value by its length or size | `{term: ObjQL.size([20, null])}` |
-| **likeArray(valuesArr)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can contain other values) | `{flags: ObjQL.likeArray(['canWrite', 'canEdit'])}` |
-| **likeExactArray(valuesArr, checkIndexes?=false)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can't contain other values) | `{badges: ObjQL.likeExactArray(['Freshman'])}` |
+#### `equal(value, strict?=true)`
 
-#### The `match()` matcher
+Matches a value that equals another one.
+
+```
+.where({
+	age: ObjQL.equal('20', false)
+})
+```
+
+#### `is(value)`
+
+Matches a value that is equal to another one; uses _Object.is()_.
+
+```
+where({
+	result: ObjQL.is(NaN)
+})
+```
+
+#### `in(valuesArray)`
+
+Matches a value that equals one from an array.
+
+```
+where({
+	group: ObjQL.in(['A', 'B', 'C', 'D'])
+})
+```
+
+#### `range(min, max)`
+
+Matches a value that is from the range _&lt;min;max&gt;_.
+
+```
+where({
+	age: ObjQL.range(15, 25)
+})
+```
+
+#### `regExp(re)`
+
+Matches a value that matches a regular expression.
+
+```
+where({
+	name: ObjQL.regExp(/^.A/i)
+})
+```
+
+#### `like(pattern)`
+
+Matches a value that matches to a pattern:
+
+* _%_ - zero or more characters
+* _\__ - exactly 1 character
+
+```
+where({
+	name: ObjQL.like('%A_a_')
+})
+```
+
+#### `ref(anotherField)`
+
+Matches a value by a value of other field.
+
+```
+where({
+	name: ObjQL.ref('fatherName')
+})
+```
+
+#### `size(numberOrRange)`
+
+Matches a value by its length or size, depending on it is a string, an array, a set or a map.
+
+```
+where({
+	term: ObjQL.size([20, null])
+})
+```
+
+#### `likeArray(valuesArr)`
+
+Matches a value that is an array containing all the values from the array passed to the matcher (meanwhile it can contain other values).
+
+```
+match({
+	flags: ObjQL.likeArray(['canWrite', 'canEdit'])
+})
+```
+
+* `['canWrite', 'canEdit', 'canDelete']` will be matched
+
+#### `likeExactArray(valuesArr, checkIndexes?=false)`
+
+Matches a value that is an array containing all the values from the array passed to the matcher (meanwhile it can't contain other values).
+
+```
+where({
+	badges: ObjQL.likeExactArray(['Freshman'])
+})
+```
+
+* `['Freshman']` will be matched
+* `['Freshman', 'Mentor']` will not be matched
+
+#### `match(fn)`
+
+Matches a value by a custom condition.
+
+```
+where({
+	name: ObjQL.match((val, rec) => val === rec.surname)
+})
+```
 
 A callback passed to the `match()` matcher can accept up to 4 parameters:
 * value of a field in a current record
@@ -113,14 +215,65 @@ ObjQL.from(collection)
 
 ### Strings
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **firstChar(char)** | match value by the first character | `{city: ObjQL.firstChar('A')}` |
-| **lastChar(char)** | match value by the last character | `{city: ObjQL.lastChar('Z')}` |
-| **nthChar(char, position)** | match value by the n-th character | `{city: ObjQL.nthChar('D', 3)}` |
-| **startsWith(substr, caseSensitive?=true)** | match value by the beginning | `{city: ObjQL.startsWith('Los')}` |
-| **endsWith(substr, caseSensitive?=true)** | match value by the end | `{city: ObjQL.endsWith('os')}` |
-| **contains(substr, caseSensitive?=true)** | match value by a substring | `{city: ObjQL.contains('yo')}` |
+#### `firstChar(char)`
+
+Matches a value by the first character.
+
+```
+where({
+	city: ObjQL.firstChar('A')
+})
+```
+
+#### `lastChar(char)`
+
+Matches a value by the last character.
+
+```
+where({
+	city: ObjQL.lastChar('Z')
+})
+```
+
+#### `nthChar(char, position)`
+
+Matches a value by the n-th character.
+
+```
+where({
+	city: ObjQL.nthChar('D', 3)
+})
+```
+
+#### `startsWith(substr, caseSensitive?=true)`
+
+Matches a value by the beginning.
+
+```
+where({
+	city: ObjQL.startsWith('Los')
+})
+```
+
+#### `endsWith(substr, caseSensitive?=true)`
+
+Matches a value by the end.
+
+```
+where({
+	city: ObjQL.endsWith('os')
+})
+```
+
+#### `contains(substr, caseSensitive?=true)`
+
+Matches a value by a substring.
+
+```
+where({
+	city: ObjQL.contains('yo')
+})
+```
 
 ### Date
 
@@ -129,29 +282,115 @@ There are functions checking date that can be represented by:
 * a particular value (e.g., `month(4)` to match _April_)
 * an instance of the `Date()`
 * a timestamp (a number of milliseconds that have passed from 01.01.1970 00:00:00)
+* the `ObjQL.CURRENT` constant
 * a string in one of the following formats:
 	* `YYYY-MM-DD HH:mm:ss.uuu`
 	* `DD.MM.YYYY HH:mm:ss.uuu`
 	* `MM/DD/YYYY HH:mm:ss.uuu`
-* the `ObjQL.CURRENT` constant
 
-> When it comes to the latest three, the following parts are optional: entire time part (`HH:mm:ss.uuu`), seconds with milliseconds (`ss.uuu`) and milliseconds (`uuu`).
+> When it comes to the last one, a time part can be added. The following time formats are allowed: `HH:mm`, `HH:mm:ss` and `HH:mm:ss.uuu` (`uuu` means milliseconds here).
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **day(dayIndexOrRange)** | match value by a day in date | `{birth_date: ObjQL.day(20)}` |
-| **month(monthIndexOrRange)** | match value by a month in date | `{birth_date: ObjQL.month(12)}` |
-| **year(fullYearOrRange)** | match value by a full year (e.g., _1998_ rather than _98_) | `{registered: ObjQL.year(2010)}` |
-| **hour(hourOrRange)** | match value by an hour | `{orders: ObjQL.hour(15)}` |
-| **minute(minuteOrRange)** | match value by a minute | `{orders: ObjQL.minute(30)}` |
-| **second(secondOrRange)** | match value by a second | `{lap: ObjQL.second(10)}` |
-| **millisecond(msOrRange)** | match value by a millisecond | `{click: ObjQL.millisecond(12)}` |
-| **date(dateFormat, dateValue**) | match value by a date | `{birth_date: ObjQL.date('DD.MM', '14.02')}` |
-| **weekDay(weekDayIndexOrRange)** | match value by a week day (1=Monday, 7=Sunday) | `{weekend_visits: ObjQL.weekDay(6)}` |
+#### `year(fullYearOrRange)`
 
-> The `dateFormat` parameter in the `date()` method can consist of the following parts: `YYYY` - full year, `MM` - month, `DD` - day, `HH` - hour, `mm` - minute, `ss` - second, `uuu` - millisecond.
+Matches a value by a full year (e.g., _1998_ rather than _98_).
 
-#### Examples of matching date
+```
+where({
+	registered: ObjQL.year(2010)
+})
+```
+
+#### `month(monthIndexOrRange)`
+
+Matches a value by a month in date.
+
+```
+where({
+	birth_date: ObjQL.month(12)
+})
+```
+
+#### `day(dayIndexOrRange)`
+
+Matches a value by a day in date.
+
+```
+where({
+	birth_date: ObjQL.day(20)
+})
+```
+
+#### `weekDay(weekDayIndexOrRange)`
+
+Matches a value by a week day; 1 is for Monday, 7 is for Sunday.
+
+```
+where({
+	weekend_visits: ObjQL.weekDay(6)
+})
+```
+
+#### `hour(hourOrRange)`
+
+Matches a value by an hour.
+
+```
+where({
+	orders: ObjQL.hour(15)
+})
+```
+
+#### `minute(minuteOrRange)`
+
+Matches a value by a minute.
+
+```
+where({
+	orders: ObjQL.minute(30)
+})
+```
+
+#### `second(secondOrRange)`
+
+Matches a value by a second.
+
+```
+where({
+	lap: ObjQL.second(10)
+})
+```
+
+#### `millisecond(msOrRange)`
+
+Matches a value by a millisecond.
+
+```
+where({
+	click: ObjQL.millisecond(12)
+})
+```
+
+#### `date(dateFormat, dateValue)`
+
+Matches a value by a date.
+
+```
+where({
+	birth_date: ObjQL.date('DD.MM', '14.02')
+})
+```
+
+The `dateFormat` parameter in the `date()` method can consist of the following parts:
+
+* `YYYY` - full year
+* `MM` - month
+* `DD` - day
+* `HH` - hour
+* `mm` - minute
+* `ss` - second
+* `uuu` - millisecond
+
+##### Examples of matching date
 
 * match entries where the `start_date` field is date whose month is April
 
@@ -189,21 +428,73 @@ where({
 
 ### Array of Numbers
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **min(numberOrRange)** | match value by minimum value(s) in an array | `{height: ObjQL.min([180, null])}` |
-| **max(numberOrRange)** | match value by maximum value(s) in an array | `{weight: ObjQL.max(100)}` |
-| **avg(numberOrRange)** | match value by average value(s) of an array | `{test: ObjQL.avg([4, 5])}` |
-| **sum(numberOrRange)** | match value by sum of an array items | `{width: ObjQL.sum(24)}` |
-| **count(item, numberOrRange)** | match value by a number of item occurencies | `{comment: ObjQL.count('fuc', [null, 3])}` |
-| **unique(numberOrRange)** | match value by a number of unique items | `{awards: ObjQL.unique([10, 50])}` |
+#### `min(numberOrRange)`
 
-> *Example ranges*:
-> * `count('a', [1, 4])` - a number of occurencies of `a` >= 1 and <= 4
-> * `count('a', [2, null])` - a number of occurencies of `a` >= 2
-> * `count('a', [null, 5])` - a number of occurencies of `a` <= 5
+Matches a value by minimum value(s) in an array.
 
-#### How do `min()`/`max()` work?
+```
+where({
+	results: ObjQL.min([250, null])
+})
+```
+
+#### `max(numberOrRange)`
+
+Matches a value by maximum value(s) in an array.
+
+```
+where({
+	heights: ObjQL.max(100)
+})
+```
+
+#### `avg(numberOrRange)`
+
+Matches a value by average value(s), i.e., the mean, of an array.
+
+```
+where({
+	test: ObjQL.avg([4, 5])
+})
+```
+
+#### `sum(numberOrRange)`
+
+Matches a value by sum of an array items.
+
+```
+where({
+	marks: ObjQL.sum(24)
+})
+```
+
+#### `count(item, numberOrRange)`
+
+Matches a value by a number of item occurencies.
+
+```
+where({
+	comment: ObjQL.count('fuc', [null, 3])
+})
+```
+
+#### `unique(numberOrRange)`
+
+Matches a value by a number of unique items.
+
+```
+where({
+	awards: ObjQL.unique([10, 50])
+})
+```
+
+##### Example ranges
+
+* `count('a', [1, 4])` - a number of occurencies of `a` >= 1 and <= 4
+* `count('a', [2, null])` - a number of occurencies of `a` >= 2
+* `count('a', [null, 5])` - a number of occurencies of `a` <= 5
+
+##### How do `min()`, `max()`, etc. work?
 
 ```
 const collection = ObjQL.from([
@@ -242,14 +533,74 @@ const result4 = collection.select('*').where({
 
 ### Objects
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **hasKey(keyName)** | match object that has a given key | `{config: ObjQL.hasKey('language')}` |
-| **hasKeys(keyNamesArr, mode)** | match object that has the given keys: **all** (if `mode` equals `ALL`, it's default value) or **some** (if `mode` equals `SOME`) | `{theme: ObjQL.hasKeys(['color', 'background'], 'SOME')}` |
-| **hasValue(value)** | match object that has a given value | `{theme: ObjQL.hasValue('pink')}` |
-| **hasValues(valuesArr, mode)** | match object that has the given values, _all_ or _some_ depending on `mode` (`ALL` being default value or `SOME`) | `{config: ObjQL.hasValues(['PL', 'FR'], 'SOME')}` |
-| **hasProp(keyName, value)** | match object that has a given key equal to given value | `{theme: ObjQL.hasProp('color', 'red')}` |
-| **hasProps(pairArr, mode)** | match object that has the given keys equal to a respective value (depending on `mode`: `ALL` (default) or `SOME`) | `{config: ObjQL.hasProps([['language', 'PL'], ['location', 'Poland']])}` |
+#### `hasKey(keyName)`
+
+Matches an object that has a given key.
+
+```
+where({
+	config: ObjQL.hasKey('language')
+})
+```
+
+#### `hasKeys(keyNamesArr, mode)`
+
+Matches an object that has the given keys:
+
+*  **all** if `mode` equals `ALL` (default value)
+* **some** if `mode` equals `SOME`
+
+```
+where({
+	theme: ObjQL.hasKeys(['color', 'background'], 'SOME')
+})
+```
+
+#### `hasValue(value)`
+
+Matches an object that has a given value.
+
+```
+where({
+	theme: ObjQL.hasValue('pink')
+})
+```
+
+#### `hasValues(valuesArr, mode)`
+
+Match an object that has the given values:
+
+*  **all** if `mode` equals `ALL` (default value)
+* **some** if `mode` equals `SOME`
+
+```
+where({
+	config: ObjQL.hasValues(['PL', 'FR'], 'SOME')
+})
+```
+
+#### `hasProp(keyName, value)`
+
+Matches an object that has a given key equal to given value.
+
+```
+where({
+	theme: ObjQL.hasProp('color', 'red')
+})
+```
+
+#### `hasProps(pairArr, mode)`
+
+Matches an object that has the given keys equal to a respective value:
+
+*  **all** if `mode` equals `ALL` (default value)
+* **some** if `mode` equals `SOME`
+
+```
+where({
+	config: ObjQL.hasProps([['language', 'PL'], ['location', 'Poland']])
+})
+```
 
 ### Types
 
