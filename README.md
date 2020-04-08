@@ -70,6 +70,59 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 
 ## Functions
 
+* General
+	* [`equal()`](#equalvalue-stricttrue)
+	* [`is()`](#isvalue)
+	* [`in()`](#invaluesarray)
+	* [`range()`](#rangemin-max)
+	* [`regExp()`](#regexpre)
+	* [`like()`](#likepattern)
+	* [`ref()`](#refanotherfield)
+	* [`size()`](#sizenumberorrange)
+	* [`likeArray()`](#likearrayvaluesarr)
+	* [`likeExactArray()`](#likeexactarrayvaluesarr-checkindexesfalse)
+* Strings
+	* [`firstChar()`](#firstcharchar)
+	* [`lastChar()`](#lastcharchar)
+	* [`nthChar()`](#nthcharchar-position)
+	* [`startsWith()`](#startswithsubstr-casesensitivetrue)
+	* [`endsWith()`](#endswithsubstr-casesensitivetrue)
+	* [`contains()`](#containssubstr-casesensitivetrue)
+* Date
+	* [`year()`](#yearfullyearorrange)
+	* [`month()`](#monthmonthindexorrange)
+	* [`day()`](#daydayindexorrange)
+	* [`weekDay()`](#weekdayweekdayindexorrange)
+	* [`hour()`](#hourhourorrange)
+	* [`minute()`](#minuteminuteorrange)
+	* [`second()`](#secondsecondorrange)
+	* [`millisecond()`](#millisecondmsorrange)
+	* [`date()`](#datedateformar-datevalue)
+* Array of Numbers
+	* [`min()`](#minnumberorrange)
+	* [`max()`](#maxnumberorrange)
+	* [`avg()`](#avgnumberorrange)
+	* [`sum()`](#sumnumberorrange)
+	* [`count()`](#countitem-numberorrange)
+	* [`unique()`](#uniquenumberorrange)
+* Objects
+	* [`hasKey()`](#haskeykeyname)
+	* [`hasKeys()`](#haskeyskeynamesarr-mode)
+	* [`hasValue()`](#hasvaluevalue)
+	* [`hasValues()`](#hasvaluesvaluesarr-mode)
+	* [`hasProp()`](#haspropkeyname-value)
+	* [`hasProps()`](#haspropspairarr-mode)
+* [Types](#types)
+	* `isType()`
+	* `isInstanceOf()`
+	* `isNull()`
+	* `isUndefined()`
+	* `isTruthy()`
+	* `isFalsy()`
+	* `isInteger()`
+	* `isFloat()`
+
+
 ### General
 
 #### `equal(value, strict?=true)`
@@ -277,7 +330,7 @@ where({
 
 ### Date
 
-There are functions checking date that can be represented by:
+The functions check date that can be represented by:
 
 * a particular value (e.g., `month(4)` to match _April_)
 * an instance of the `Date()`
