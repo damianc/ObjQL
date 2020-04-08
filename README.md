@@ -72,21 +72,123 @@ As a third parameter of the `select()` method, you can pass an array of strings 
 
 ### General
 
-| Function | Purpose | Example |
-|----------|---------|---------|
-| **equal(value, strict?=true)** | match value that equals another one | `{age: ObjQL.equal('20', false)}` |
-| **is(value)** | match value that is equal to another one (uses _Object.is()_) | `{result: ObjQL.is(NaN)}` |
-| **in(valuesArray)** | match value that equals one from an array | `{group: ObjQL.in(['A', 'B', 'C', 'D'])}` |
-| **range(min, max)** | match value that is from the range _&lt;min;max&gt;_ | `{age: ObjQL.range(15, 25)}` |
-| **regExp(re)** | match value that matches to a regular expression | `{name: ObjQL.regExp(/^.A/i)}` |
-| **like(pattern)** | match value that matches to a pattern (_%_ means 0+ chars, _\__ means 1 char) | `{name: ObjQL.like('%A_a_')}` |
-| **ref(anotherField)** | match value by a value of other field | `{name: ObjQL.ref('fatherName')}` |
-| **match(fn)** | match value by a custom condition | `{name: ObjQL.match((val, rec) => val === rec.surname)}` |
-| **size(numberOrRange)** | match value by its length or size | `{term: ObjQL.size([20, null])}` |
-| **likeArray(valuesArr)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can contain other values) | `{flags: ObjQL.likeArray(['canWrite', 'canEdit'])}` |
-| **likeExactArray(valuesArr, checkIndexes?=false)** | match value that is an array containing all the values from the array passed to the matcher (meanwhile can't contain other values) | `{badges: ObjQL.likeExactArray(['Freshman'])}` |
+#### `equal(value, strict?=true)`
 
-#### The `match()` matcher
+Matches a value that equals another one.
+
+```
+.where({
+	age: ObjQL.equal('20', false)
+})
+```
+
+#### `is(value)`
+
+Matches a value that is equal to another one; uses _Object.is()_.
+
+```
+where({
+	result: ObjQL.is(NaN)
+})
+```
+
+#### `in(valuesArray)`
+
+Matches a value that equals one from an array.
+
+```
+where({
+	group: ObjQL.in(['A', 'B', 'C', 'D'])
+})
+```
+
+#### `range(min, max)`
+
+Matches a value that is from the range _&lt;min;max&gt;_.
+
+```
+where({
+	age: ObjQL.range(15, 25)
+})
+```
+
+#### `regExp(re)`
+
+Matches a value that matches a regular expression.
+
+```
+where({
+	name: ObjQL.regExp(/^.A/i)
+})
+```
+
+#### `like(pattern)`
+
+Matches a value that matches to a pattern:
+
+* _%_ - zero or more characters
+* _\__ - exactly 1 character
+
+```
+where({
+	name: ObjQL.like('%A_a_')
+})
+```
+
+#### `ref(anotherField)`
+
+Matches a value by a value of other field.
+
+```
+where({
+	name: ObjQL.ref('fatherName')
+})
+```
+
+#### `size(numberOrRange)`
+
+Matches a value by its length or size, depending on it is a string, an array, a set or a map.
+
+```
+where({
+	term: ObjQL.size([20, null])
+})
+```
+
+#### `likeArray(valuesArr)`
+
+Matches a value that is an array containing all the values from the array passed to the matcher (meanwhile it can contain other values).
+
+```
+match({
+	flags: ObjQL.likeArray(['canWrite', 'canEdit'])
+})
+```
+
+* `['canWrite', 'canEdit', 'canDelete']` will be matched
+
+#### `likeExactArray(valuesArr, checkIndexes?=false)`
+
+Matches a value that is an array containing all the values from the array passed to the matcher (meanwhile it can't contain other values).
+
+```
+where({
+	badges: ObjQL.likeExactArray(['Freshman'])
+})
+```
+
+* `['Freshman']` will be matched
+* `['Freshman', 'Mentor']` will not be matched
+
+#### `match(fn)`
+
+Matches a value by a custom condition.
+
+```
+where({
+	name: ObjQL.match((val, rec) => val === rec.surname)
+})
+```
 
 A callback passed to the `match()` matcher can accept up to 4 parameters:
 * value of a field in a current record
