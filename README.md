@@ -337,9 +337,9 @@ The functions check date that can be represented by:
 * a timestamp (a number of milliseconds that have passed from 01.01.1970 00:00:00)
 * the `ObjQL.CURRENT` constant
 * a string in one of the following formats:
-	* `YYYY-MM-DD HH:mm:ss.uuu`
-	* `DD.MM.YYYY HH:mm:ss.uuu`
-	* `MM/DD/YYYY HH:mm:ss.uuu`
+	* `YYYY-MM-DD`
+	* `DD.MM.YYYY`
+	* `MM/DD/YYYY`
 
 > When it comes to the last one, a time part can be added. The following time formats are allowed: `HH:mm`, `HH:mm:ss` and `HH:mm:ss.uuu` (`uuu` means milliseconds here).
 
